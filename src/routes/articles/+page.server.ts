@@ -1,13 +1,4 @@
-
-export interface ArticleMetadata {
-    title: string,
-    description: string,
-    image?: string,
-    published: Date,
-    tags: string[],
-    url: string
-}
-
+import type {ArticleMetadata, ArticlesFromServer} from "$lib/models";
 
 function fromMetadataToArticle(metadata: any) : ArticleMetadata {
     return {
@@ -17,6 +8,7 @@ function fromMetadataToArticle(metadata: any) : ArticleMetadata {
         url: `articles/${metadata.slug}`,
         title: metadata.title!,
         image: metadata.image,
+        publication_date: metadata.publication_date
     }
 }
 
@@ -43,11 +35,9 @@ async function loadArticles() {
     return posts.filter((post) => post.published);
 }
 
-export const prerender = true;
-export async function load() {
-    let articleMetadata = await loadArticles();
-    console.log("PAS ENVIE")
-    console.log(articleMetadata)
+export async function load(): Promise<ArticlesFromServer> {
+    let articleMetadata: ArticleMetadata[] = await loadArticles();
+
     return {
         articles : articleMetadata
     };
