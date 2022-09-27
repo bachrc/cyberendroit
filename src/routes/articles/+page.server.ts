@@ -45,5 +45,10 @@ async function loadArticles() {
 
 export const prerender = true;
 export async function load() {
-    return await loadArticles();
+    let articleMetadata = await loadArticles();
+    console.log("PAS ENVIE")
+    console.log(articleMetadata)
+    return {
+        articles : articleMetadata
+    };
 }
