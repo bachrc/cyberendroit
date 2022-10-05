@@ -3,6 +3,9 @@
     import Header from "../components/Header.svelte";
     import NavBar from "../components/NavBar.svelte";
 </script>
+<svelte:head>
+    <title>cyberpacha.space</title>
+</svelte:head>
 <div class="min-h-screen flex flex-col">
     <Header/>
     <nav class="bg-sky-200">
