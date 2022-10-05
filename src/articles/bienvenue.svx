@@ -6,8 +6,6 @@ published: true
 publication_date: 2021-09-27
 ---
 
-# Le tout premier article
-
 Bonjour ! Bienvenue dans mon tout premier article.
 
 Peut-être sera-ce le premier d'une longue série, on ne sait pas. 
