@@ -20,7 +20,7 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		alias: {
-			$articles: resolve('./src/routes/articles'),
+			$articles: resolve('./src/articles'),
 		},
 	}
 };

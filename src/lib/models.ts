@@ -12,4 +12,9 @@ interface ArticlesFromServer {
     articles : ArticleMetadata[]
 }
 
-export type {ArticlesFromServer, ArticleMetadata}
+interface ArticleContent {
+    html: string,
+    metadata: ArticleMetadata
+}
+
+export type {ArticlesFromServer, ArticleMetadata, ArticleContent}

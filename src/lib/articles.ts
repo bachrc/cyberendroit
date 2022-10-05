@@ -1,6 +1,6 @@
-import type {ArticleMetadata} from "./models";
+import type {ArticleContent, ArticleMetadata} from "./models";
 
-const slugPattern = /([\w-]+)\/\+page\.(svelte\.md|md|svx)$/
+const slugPattern = /\/([\w-]+)\.(svelte\.md|md|svx)$/
 const slugFromPath = (path: string) => path.match(slugPattern)?.[1] ?? null;
 
 function fromMetadataToArticle(metadata: any) : ArticleMetadata {
@@ -16,7 +16,7 @@ function fromMetadataToArticle(metadata: any) : ArticleMetadata {
 }
 
 export async function loadArticles() : Promise<ArticleMetadata[]> {
-    const modules = import.meta.glob('$articles/**/*.{md,svx,svelte.md}');
+    const modules = import.meta.glob('$articles/*.{md,svx,svelte.md}');
 
     const postPromises = [];
 
@@ -29,8 +29,6 @@ export async function loadArticles() : Promise<ArticleMetadata[]> {
 
         postPromises.push(promise);
     }
-
-    console.log("aaaa")
 
     const posts: ArticleMetadata[] = (await Promise.all(postPromises)).map(fromMetadataToArticle);
 
