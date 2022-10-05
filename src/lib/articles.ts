@@ -1,4 +1,7 @@
-import type {ArticleMetadata, ArticlesFromServer} from "$lib/models";
+import type {ArticleMetadata} from "./models";
+
+const slugPattern = /([\w-]+)\/\+page\.(svelte\.md|md|svx)$/
+const slugFromPath = (path: string) => path.match(slugPattern)?.[1] ?? null;
 
 function fromMetadataToArticle(metadata: any) : ArticleMetadata {
     return {
@@ -12,11 +15,8 @@ function fromMetadataToArticle(metadata: any) : ArticleMetadata {
     }
 }
 
-const slugPattern = /([\w-]+)\/\+page\.(svelte\.md|md|svx)$/
-const slugFromPath = (path: string) => path.match(slugPattern)?.[1] ?? null;
-
-async function loadArticles() {
-    const modules = import.meta.glob('./**/*.{md,svx,svelte.md}');
+export async function loadArticles() : Promise<ArticleMetadata[]> {
+    const modules = import.meta.glob('$articles/**/*.{md,svx,svelte.md}');
 
     const postPromises = [];
 
@@ -30,15 +30,9 @@ async function loadArticles() {
         postPromises.push(promise);
     }
 
+    console.log("aaaa")
+
     const posts: ArticleMetadata[] = (await Promise.all(postPromises)).map(fromMetadataToArticle);
 
     return posts.filter((post) => post.published);
-}
-
-export async function load(): Promise<ArticlesFromServer> {
-    let articleMetadata: ArticleMetadata[] = await loadArticles();
-
-    return {
-        articles : articleMetadata
-    };
 }

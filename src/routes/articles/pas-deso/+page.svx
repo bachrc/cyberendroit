@@ -8,4 +8,4 @@ publication_date: 2021-09-27
 
 # Yo !
 
-Ceci est un article
+Ceci est un article super cool
