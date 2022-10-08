@@ -2,7 +2,7 @@
     import CyberContainer from "../components/CyberContainer.svelte";
 </script>
 
-<div class="container mx-auto flex flex-row gap-2">
+<div class="container mx-auto flex flex-row gap-2 pt-8">
     <div class="w-2/3">
         <CyberContainer title="cyber bonjour">
             <p>Eh bien soyez les bienvenus sur mon site Internet ORIGINAL.</p>

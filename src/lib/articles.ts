@@ -1,4 +1,4 @@
-import type {ArticleContent, ArticleMetadata} from "./models";
+import type {ArticleMetadata} from "./models";
 
 const slugPattern = /\/([\w-]+)\.(svelte\.md|md|svx)$/
 const slugFromPath = (path: string) => path.match(slugPattern)?.[1] ?? null;

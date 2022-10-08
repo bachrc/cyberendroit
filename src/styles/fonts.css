@@ -2,3 +2,8 @@
     font-family: 'Good Timing';
     src: url('/fonts/goodtiming.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Serpentine';
+    src: url('/fonts/serpentine.ttf') format('truetype');
+}
