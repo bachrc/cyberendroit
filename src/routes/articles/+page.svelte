@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {ArticleMetadata, ArticlesFromServer} from "../../lib/models";
     import CyberContainer from "../../components/CyberContainer.svelte";
+    import ArticleCard from "../../components/ArticleCard.svelte";
 
     export let data: ArticlesFromServer;
     const articles: ArticleMetadata[] = data.articles;
@@ -20,10 +21,12 @@
     <div class="flex flex-row gap-8">
         <div class="flex flex-col gap-8 w-2/3">
             {#each articles as article}
-                <a href="{article.url}">
-                    <span class="text-2xl font-bold">{article.title}</span>
-                    <p class="text-lg">{article.description}</p>
-                </a>
+                <ArticleCard
+                    title={article.title}
+                    url={article.url}
+                    description={article.description}
+                    publication_date={article.publication_date}
+                />
             {/each}
 
         </div>

@@ -1,0 +1,12 @@
+---
+title: Nous voili partis
+publication_date: 2022-10-08T18:20:18+02:00
+layout: edito
+---
+
+Yo, ceci est un edito de test, prends tes aises !
+
+Aujourd'hui, on m'a conseillé de faire les choses bien dès le début. Par respect par cette personne, je vais donc tout 
+coder bien dès le début.
+
+J'aurai jamais autant bouffé de Javascript de toute ma vie.

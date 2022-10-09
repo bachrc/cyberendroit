@@ -5,11 +5,26 @@ interface ArticleMetadata {
     published: boolean,
     tags: string[],
     url: string,
-    publication_date: string
+    publication_date: Date
+}
+
+interface EditoMetadata {
+    title: string;
+    publication_date: Date;
+    slug: string;
+}
+
+interface Edito {
+    metadata: EditoMetadata;
+    content: string;
 }
 
 interface ArticlesFromServer {
     articles : ArticleMetadata[]
+}
+
+interface EditosFromServer {
+    editos : Edito[]
 }
 
 interface ArticleContent {
@@ -17,4 +32,4 @@ interface ArticleContent {
     metadata: ArticleMetadata
 }
 
-export type {ArticlesFromServer, ArticleMetadata, ArticleContent}
+export type {ArticlesFromServer, ArticleMetadata, ArticleContent, Edito, EditoMetadata, EditosFromServer}

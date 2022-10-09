@@ -1,36 +1,25 @@
-import type {ArticleMetadata} from "./models";
+import type {ArticleMetadata, Edito, EditoMetadata} from "./models";
+import type {SvxInfo} from "./server/svx";
 
 const slugPattern = /\/([\w-]+)\.(svelte\.md|md|svx)$/
-const slugFromPath = (path: string) => path.match(slugPattern)?.[1] ?? null;
+export const slugFromPath = (path: string) => path.match(slugPattern)?.[1] ?? null;
 
-function fromMetadataToArticle(metadata: any) : ArticleMetadata {
+export function fromMetadataToArticle(svx: SvxInfo) : ArticleMetadata {
     return {
-        description: metadata.description!,
-        published: metadata.published!,
-        tags: metadata.tags.split(','),
-        url: `articles/${metadata.slug}`,
-        title: metadata.title!,
-        image: metadata.image,
-        publication_date: metadata.publication_date
+        description: svx.metadata.description!,
+        published: svx.metadata.published!,
+        tags: svx.metadata.tags.split(','),
+        url: `articles/${slugFromPath(svx.path)}`,
+        title: svx.metadata.title!,
+        image: svx.metadata.image,
+        publication_date: new Date(svx.metadata.publication_date)
     }
 }
 
-export async function loadArticles() : Promise<ArticleMetadata[]> {
-    const modules = import.meta.glob('$articles/*.{md,svx,svelte.md}');
-
-    const postPromises = [];
-
-    for (let [path, resolver] of Object.entries(modules)) {
-        const slug = slugFromPath(path);
-        const promise = resolver().then((post: any) => ({
-            slug,
-            ...post.metadata
-        }));
-
-        postPromises.push(promise);
+export function parseEditoMetadata(svx: SvxInfo) : EditoMetadata {
+    return {
+        title: svx.metadata.title,
+        publication_date: new Date(svx.metadata.publication_date),
+        slug: slugFromPath(svx.path)!!
     }
-
-    const posts: ArticleMetadata[] = (await Promise.all(postPromises)).map(fromMetadataToArticle);
-
-    return posts.filter((post) => post.published);
 }

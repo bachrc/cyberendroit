@@ -8,7 +8,9 @@ const config = defineConfig({
 	},
 
 	layout: {
-		_ : "./src/components/blog-layouts/standard-article.svelte"
+		_ : "./src/components/layouts/standard-article.svelte",
+		article : "./src/components/layouts/standard-article.svelte",
+		edito : "./src/components/layouts/edito.svelte"
 	},
 
 	remarkPlugins: [],

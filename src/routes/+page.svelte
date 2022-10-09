@@ -1,15 +1,24 @@
-<script>
+<script lang="ts">
     import CyberContainer from "../components/CyberContainer.svelte";
+    import type {Edito, EditosFromServer} from "$lib/models.js";
+
+    export let data: EditosFromServer;
+    const editos: Edito[] = data.editos
 </script>
 
-<div class="container mx-auto flex flex-row gap-2 pt-8">
-    <div class="w-2/3">
+<div class="container mx-auto flex flex-row gap-2">
+    <div class="w-3/4 flex flex-col gap-4">
         <CyberContainer title="cyber bonjour">
             <p>Eh bien soyez les bienvenus sur mon site Internet ORIGINAL.</p>
             <p>Bientôt on espère du contenu.</p>
         </CyberContainer>
+        {#each editos as edito}
+            <CyberContainer title={edito.metadata.title}>
+                {@html edito.content}
+            </CyberContainer>
+        {/each}
     </div>
-    <div class="w-1/3 flex flex-col gap-2">
+    <div class="w-1/4 flex flex-col gap-2">
         <CyberContainer title="Futur" >
             Bienvenue dans le futur
         </CyberContainer>

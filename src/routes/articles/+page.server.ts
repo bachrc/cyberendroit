@@ -1,5 +1,5 @@
 import type {ArticleMetadata, ArticlesFromServer} from "$lib/models";
-import {loadArticles} from "$lib/articles";
+import {loadArticles} from "../../lib/server/articles";
 
 // export const prerender = true
 export const prerender = true;

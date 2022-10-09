@@ -12,7 +12,7 @@
     <nav class="bg-indigo-200">
         <NavBar/>
     </nav>
-    <main class="bg-gradient-to-b from-indigo-200 to-purple-300 grow">
+    <main class="bg-indigo-200 grow">
         <slot />
     </main>
 </div>
