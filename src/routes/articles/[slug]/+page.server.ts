@@ -1,6 +1,5 @@
-import type {ArticleContent, ArticlesFromServer} from "../../../lib/models";
+import type {ArticleContent} from "../../../lib/models";
 import type {ServerLoadEvent} from "@sveltejs/kit";
-import { error } from '@sveltejs/kit'
 import {loadArticle} from "../../../lib/server/articles";
 
 /** @type {import('./$types').PageServerLoad} */

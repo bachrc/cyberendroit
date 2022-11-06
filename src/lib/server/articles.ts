@@ -12,6 +12,7 @@ export async function loadArticles(): Promise<ArticleMetadata[]> {
     const svxs: SvxInfo[] = await parseMetadataInPath(ARTICLES_SOURCE);
 
     const posts: ArticleMetadata[] = svxs.map(fromMetadataToArticle);
+    posts.sort((e1, e2) => e2.publication_date.valueOf() - e1.publication_date.valueOf())
 
     return posts.filter((post) => post.published);
 }

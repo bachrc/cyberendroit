@@ -19,7 +19,7 @@
     </div>
 
     <div class="flex flex-row gap-8">
-        <div class="flex flex-col gap-8 w-2/3">
+        <div class="flex flex-col gap-8">
             {#each articles as article}
                 <ArticleCard
                     title={article.title}
@@ -29,11 +29,6 @@
                 />
             {/each}
 
-        </div>
-        <div class="w-1/3">
-            <CyberContainer title="Pouetent">
-                <span>Bah coucou !</span>
-            </CyberContainer>
         </div>
     </div>
 </div>

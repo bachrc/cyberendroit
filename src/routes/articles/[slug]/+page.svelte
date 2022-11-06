@@ -1,8 +1,9 @@
 <script lang="ts">
     import type {ArticleContent} from "../../../lib/models";
-
+    import "../../../styles/code-block.css"
     export let data: ArticleContent;
     const metadata = data.metadata;
+
 </script>
 
 <svelte:head>
@@ -34,8 +35,5 @@
     <meta name="twitter:description" content={metadata.description} />
     <meta name="twitter:image" content={metadata.image} />
 
-    <!-- Monetisation -->
-    <meta name="monetization" content="$ilp.uphold.com/bzPBWkMBzLmN" />
 </svelte:head>
-
 {@html data.html}
