@@ -6,4 +6,15 @@ layout: edito
 
 Coucou tout le monde !
 
-Avec ce site, je voulais m'entrainer avec des technologies que je trouvais bien sympa.
+Avec ce site, je voulais m'entrainer avec des technologies que je trouvais bien sympa, et me faire un petit endroit à moi sur Internet !
+
+J'y mettrai des articles principalement de développement, et pourquoi pas un jour de café.
+
+Et de jeux.
+
+Et de musique.
+
+Ne nous emballons pas, je galère déjà avec Svelte et Tailwind. On va y aller mollo.
+
+Si vous voulez me trouver en attendant, vous me trouverez sur Mastodon : **[@pacha@mamot.fr](https://mamot.fr/@pacha)**, vous pouvez m'y souhaiter
+bon courage pour le développement du reste.

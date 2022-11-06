@@ -7,8 +7,8 @@
     const editos: Edito[] = data.editos
 </script>
 
-<div class="container mx-auto flex flex-row gap-2">
-    <div class="w-3/4 flex flex-col gap-4">
+<div class="container mx-auto flex flex-col md:flex-row gap-2 px-4">
+    <div class="md:w-3/4 flex flex-col gap-4">
         <CyberContainer title="cyber bonjour">
             <p>Eh bien soyez les bienvenus sur mon site Internet ORIGINAL.</p>
             <p>Bientôt on espère du contenu.</p>
@@ -19,7 +19,7 @@
             </CyberContainer>
         {/each}
     </div>
-    <div class="w-1/4 flex flex-col gap-2">
+    <div class="md:w-1/4 flex flex-col gap-2">
         <CyberContainer2 title="Futur" >
             Bienvenue dans le futur
         </CyberContainer2>

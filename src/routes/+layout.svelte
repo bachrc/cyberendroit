@@ -7,7 +7,7 @@
 <svelte:head>
     <title>cyberpacha.space</title>
 </svelte:head>
-<div class="min-h-screen flex flex-col">
+<div class="min-h-screen flex flex-col ">
     <Header/>
     <nav class="bg-indigo-200">
         <NavBar/>

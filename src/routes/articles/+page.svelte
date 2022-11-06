@@ -11,11 +11,9 @@
     <title>Articles du cyberespace</title>
 </svelte:head>
 
-<div class="flex flex-col container mx-auto">
+<div class="flex flex-col container mx-auto px-4">
     <div class="self-center flex flex-row items-center gap-2 my-8">
-        <span class="font-['Good_Timing']">Soyez les bienvenus dans</span>
         <h1 class="text-6xl font-['Serpentine']">Le Blogidélice.</h1>
-        <span class="font-['Good_Timing']">Essuyez vos pieds merci</span>
     </div>
 
     <div class="flex flex-row gap-8">
