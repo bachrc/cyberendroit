@@ -32,11 +32,11 @@ Notre nouveau meilleur ami, c'est désormais `rustc` ! Il s'agit du compilateur 
 
 Pour débuter la création de notre service de bienveillance, nous allons créer un fichier **main.rs** :
 
-```rust
+~~~rust showLineNumbers
 fn main() {
     println!("Coucou ! N'oublie pas de boire de l'eau.");
 }
-```
+~~~
 
 De retour dans votre terminal vous pouvez compiler votre grain de bienveillance :
 

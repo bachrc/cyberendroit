@@ -1,0 +1,9 @@
+---
+title: Le site avance doucement mais sûrement !
+publication_date: 2022-11-06T19:48:18+01:00
+layout: edito
+---
+
+Coucou tout le monde !
+
+Avec ce site, je voulais m'entrainer avec des technologies que je trouvais bien sympa.
