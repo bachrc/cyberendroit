@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {ArticleContent} from "../../../lib/models";
     import "../../../styles/code-block.css"
+    import MastodonComments from "../../../components/comments/MastodonComments.svelte";
     export let data: ArticleContent;
     const metadata = data.metadata;
 
@@ -37,3 +38,7 @@
 
 </svelte:head>
 {@html data.html}
+<hr class="my-4"/>
+<div class="w-2/3">
+    <MastodonComments pouetUrl={metadata.pouet_url} />
+</div>

@@ -9,4 +9,5 @@
         <span class="text-sm">Publié le {prettyDateFromIsoString(publication_date)}</span>
         <slot></slot>
     </article>
+
 </div>

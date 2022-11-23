@@ -5,7 +5,8 @@ interface ArticleMetadata {
     published: boolean,
     tags: string[],
     url: string,
-    publication_date: Date
+    publication_date: Date,
+    pouet_url: string,
 }
 
 interface EditoMetadata {
