@@ -40,7 +40,7 @@
 <div class="flex flex-col">
     {@html data.html}
     <hr class="my-4"/>
-    <div class="sm:w-2/3 self-center">
+    <div class="sm:w-1/2 self-center">
         <MastodonComments pouetUrl={metadata.pouet_url} />
     </div>
 </div>
