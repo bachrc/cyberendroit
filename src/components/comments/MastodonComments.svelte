@@ -23,6 +23,8 @@
 {#await fetchResponsePouets(pouetUrl)}
     <p>loading</p>
 {:then pouets}
+    <h1 class="text-5xl pb-8 font-['Serpentine']">Commentaires</h1>
+
     {#each pouets as pouet}
         <Comment pouet={pouet}/>
     {/each}

@@ -37,8 +37,11 @@
     <meta name="twitter:image" content={metadata.image} />
 
 </svelte:head>
-{@html data.html}
-<hr class="my-4"/>
-<div class="w-2/3">
-    <MastodonComments pouetUrl={metadata.pouet_url} />
+<div class="flex flex-col">
+    {@html data.html}
+    <hr class="my-4"/>
+    <div class="sm:w-2/3 self-center">
+        <MastodonComments pouetUrl={metadata.pouet_url} />
+    </div>
 </div>
+

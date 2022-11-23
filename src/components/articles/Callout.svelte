@@ -4,29 +4,35 @@
     const colors = {
         "WARN" : {
             "bg-color" : "bg-amber-100",
+            "border-color" : "bg-amber-200",
             "default-illu" : "⚠️"
         },
         "INFO" : {
             "bg-color" : "bg-violet-300",
+            "border-color": "bg-violet-400",
             "default-illu" : "💻"
         },
         "QUESTION" : {
-            "bg-color" : "bg-purple-200",
-            "text-style" : "text-2xl font-bold",
+            "bg-color" : "bg-orange-100",
+            "border-color" : "bg-orange-200",
+            "text-style" : "text-xl font-bold",
             "default-illu" : "⁉️"
         }
     }
 
-    $: backgroundClass = colors[type]["bg-color"];
+    $: backgroundColor = colors[type]["bg-color"];
+    $: borderColor = colors[type]["border-color"]
     $: textStyle = colors[type]["text-style"]
     $: defaultIllu = colors[type]["default-illu"]
 </script>
 
-<div class="-rotate-1 flex flex-row w-full rounded-xl p-4 items-center gap-4 my-4 {backgroundClass}">
-    <div class="w-1/6 h-full text-6xl text-center">
-        <slot name="illu">{defaultIllu}</slot>
+<div class="my-4 -rotate-3 rounded-xl {borderColor}">
+    <div class="rotate-3 flex flex-row py-2 px-8 py-4 gap-8 items-center w-full rounded-xl border-solid {backgroundColor}">
+        <div class="text-6xl text-center">
+            <slot name="illu">{defaultIllu}</slot>
+        </div>
+        <span class="leading-8 font-sans text-left {textStyle}">
+            <slot name="content"></slot>
+        </span>
     </div>
-    <span class="rotate-1 w-5/6 leading-8 font-sans text-justify {textStyle}">
-        <slot name="content"></slot>
-    </span>
 </div>

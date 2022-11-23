@@ -117,7 +117,6 @@ cargo test
 Le test passe ! Vous pouvez respirer, l'entropie de notre monde est préservée. Vous pouvez enlever le contenu de ce fichier.
 
 <Callout type="INFO">
-    <span slot="illu">💻</span>
     <span slot="content">
         Voir le code de <a href="https://github.com/bachrc/bienveillance-land/tree/a5129fcc14b8953122d6c03b3242376c0e4d0919">cette étape</a>
     </span>
