@@ -19,13 +19,18 @@
             .then(it => pouetsFromResponse(it))
     }
 </script>
-<h1 class="text-5xl pb-8 font-['Serpentine']">Commentaires</h1>
-{#await fetchResponsePouets(pouetUrl)}
-    <p>loading</p>
-{:then pouets}
-    {#each pouets as pouet}
-        <Comment pouet={pouet}/>
-    {/each}
-{:catch error}
-    <p style="color: red">{error.message}</p>
-{/await}
+<div class="flex flex-col">
+    <h1 class="text-5xl pb-8 font-['Serpentine']">Commentaires</h1>
+    <div class="flex flex-col gap-4">
+        {#await fetchResponsePouets(pouetUrl)}
+            <p>loading</p>
+        {:then pouets}
+            {#each pouets as pouet}
+                <Comment pouet={pouet}/>
+            {/each}
+        {:catch error}
+            <p style="color: red">{error.message}</p>
+        {/await}
+    </div>
+    <span class="italic my-4">Vous pouvez ajouter un commentaire en <a class="underline underline-offset-4" href={pouetUrl}>répondant sur Mastodon</a> !</span>
+</div>

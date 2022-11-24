@@ -1,7 +1,6 @@
 <script lang="ts">
-    import type {ArticleMetadata, ArticlesFromServer} from "../../lib/models";
-    import CyberContainer from "../../components/CyberContainer.svelte";
-    import ArticleCard from "../../components/ArticleCard.svelte";
+    import type {ArticleMetadata, ArticlesFromServer} from "$lib/models";
+    import ArticleCard from "../../components/articles/ArticleCard.svelte";
 
     export let data: ArticlesFromServer;
     const articles: ArticleMetadata[] = data.articles;

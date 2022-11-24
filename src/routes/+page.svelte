@@ -24,7 +24,7 @@
             Bienvenue dans le futur
         </CyberContainer2>
         <CyberContainer2 title="Oui">
-            Prends ton siège de merde
+            Prends ton siège billy
         </CyberContainer2>
     </div>
 </div>
