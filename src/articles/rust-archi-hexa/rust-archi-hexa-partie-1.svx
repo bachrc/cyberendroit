@@ -362,9 +362,6 @@ La chaine Coucou la petite COMMU fait 22 caractères !
 Notre programme avec l'emprunt fonctionne désormais !
 
 <Callout type="QUESTION">
-    <span slot="illu">
-        ❔
-    </span>
     <span slot="content">
         Ok... mais pourquoi on parle de tout ça en fait ? On parlait pas de chaîne de caractères ?
     </span>
@@ -393,5 +390,5 @@ Voilà, en résumé, l'explication de l'ownership, qui peut sembler complexe de 
 Dans le prochain article, nous allons continuer nos cycles de développement, afin d'obtenir toujours plus de chaleur. Comme avec des accueils personnalisés, accordés à nos pronoms, ainsi que des compliments ! Que demander de plus ?
 
 <script>
-    import Callout from "../components/articles/Callout.svelte";
+    import Callout from "../../components/articles/Callout.svelte";
 </script>

@@ -28,9 +28,9 @@ interface EditosFromServer {
     editos : Edito[]
 }
 
-interface ArticleContent {
+interface Article {
     html: string,
     metadata: ArticleMetadata
 }
 
-export type {ArticlesFromServer, ArticleMetadata, ArticleContent, Edito, EditoMetadata, EditosFromServer}
+export type {ArticlesFromServer, ArticleMetadata, Article, Edito, EditoMetadata, EditosFromServer}

@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type {ArticleContent} from "../../../lib/models";
+    import type {Article} from "../../../lib/models";
     import "../../../styles/code-block.css"
     import MastodonComments from "../../../components/comments/MastodonComments.svelte";
-    export let data: ArticleContent;
+    export let data: Article;
     const metadata = data.metadata;
 
 </script>

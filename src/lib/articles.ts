@@ -12,7 +12,8 @@ export function fromMetadataToArticle(svx: SvxInfo) : ArticleMetadata {
         url: `articles/${slugFromPath(svx.path)}`,
         title: svx.metadata.title!,
         image: svx.metadata.image,
-        publication_date: new Date(svx.metadata.publication_date)
+        publication_date: new Date(svx.metadata.publication_date),
+        pouet_url: svx.metadata.pouet_url
     }
 }
 
