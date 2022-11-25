@@ -9,12 +9,8 @@
 
 <div class="container mx-auto flex flex-col md:flex-row gap-2 px-4">
     <div class="md:w-3/4 flex flex-col gap-4">
-        <CyberContainer title="cyber bonjour">
-            <p>Eh bien soyez les bienvenus sur mon site Internet ORIGINAL.</p>
-            <p>Bientôt on espère du contenu.</p>
-        </CyberContainer>
         {#each editos as edito}
-            <CyberContainer title={edito.metadata.title}>
+            <CyberContainer title={edito.metadata.title} url={`/editos/${edito.metadata.slug}`}>
                 {@html edito.content}
             </CyberContainer>
         {/each}

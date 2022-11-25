@@ -1,5 +1,5 @@
 import type {ArticleMetadata, EditoMetadata} from "../models";
-import {fromMetadataToArticle, parseEditoMetadata} from "../articles";
+import {fromMetadataToArticle, parseEditoMetadata, slugFromPath} from "../articles";
 import type {Edito} from "../models";
 import {
     error,
@@ -24,24 +24,27 @@ export async function loadEditos() : Promise<Edito[]> {
     posts.sort((e1, e2) => e2.publication_date.valueOf() - e1.publication_date.valueOf())
 
     const recentEditos = posts.slice(0,5)
-        .map(renderEdito)
+        .map(it => it.slug)
+        .map(loadEditoFromSlug)
 
     return Promise.all(recentEditos);
 }
 
-async function renderEdito(edito: EditoMetadata) : Promise<Edito> {
+export async function loadEditoFromSlug(slug: string) : Promise<Edito> {
     try {
-        const editoPath = EDITOS_BY_SLUG.get(edito.slug)
+        const editoPath = EDITOS_BY_SLUG.get(slug)
 
         if(!editoPath) {
             throw error(404, "Invalid edito identifier")
         }
 
         const svxEdito = await import(editoPath)
+        const metadata = svxEdito.metadata;
+        metadata.slug = slugFromPath(editoPath)
 
         return {
             content: svxEdito.default.render().html,
-            metadata: edito
+            metadata: svxEdito.metadata
         }
 
     } catch (err) {

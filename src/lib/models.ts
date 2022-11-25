@@ -13,6 +13,7 @@ interface EditoMetadata {
     title: string;
     publication_date: Date;
     slug: string;
+    pouet_url?: string
 }
 
 interface Edito {
