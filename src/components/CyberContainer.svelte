@@ -13,7 +13,7 @@
             {/if}
         </span>
     </div>
-    <div class="px-2 py-2 bg-indigo-100">
+    <div class="p-2 bg-indigo-100">
         <slot>POUETPOUET</slot>
     </div>
 </div>
