@@ -32,19 +32,19 @@ export async function loadEditos() : Promise<Edito[]> {
 
 export async function loadEditoFromSlug(slug: string) : Promise<Edito> {
     try {
-        const editoPath = EDITOS_BY_SLUG.get(slug)
+        const editoResolver = EDITOS_BY_SLUG.get(slug)
 
-        if(!editoPath) {
+        if(!editoResolver) {
             throw error(404, "Invalid edito identifier")
         }
 
-        const svxEdito = await import(editoPath)
-        const metadata = svxEdito.metadata;
-        metadata.slug = slugFromPath(editoPath)
+        const svxEdito = await editoResolver();
+        const metadata = svxEdito.metadata
+        metadata.slug = slug
 
         return {
             content: svxEdito.default.render().html,
-            metadata: svxEdito.metadata
+            metadata
         }
 
     } catch (err) {
@@ -55,13 +55,13 @@ export async function loadEditoFromSlug(slug: string) : Promise<Edito> {
 
 export async function loadArticle(slug: string): Promise<Article> {
     try {
-        const articlePath = ARTICLES_BY_SLUG.get(slug)
+        const articleResolver = ARTICLES_BY_SLUG.get(slug)
 
-        if(!articlePath) {
+        if(!articleResolver) {
             throw error(404, "Invalid article")
         }
 
-        const article = await import(articlePath)
+        const article = await articleResolver();
 
         return {
             html: article.default.render().html,

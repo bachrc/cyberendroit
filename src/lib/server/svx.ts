@@ -3,15 +3,17 @@ import {slugFromPath} from "../articles";
 export const EDITO_SOURCE = import.meta.glob('$editos/**/*.{md,svx,svelte.md}');
 export const ARTICLES_SOURCE = import.meta.glob('$articles/**/*.{md,svx,svelte.md}');
 
-export const EDITOS_BY_SLUG = indexBySlug(EDITO_SOURCE);
-export const ARTICLES_BY_SLUG = indexBySlug(ARTICLES_SOURCE);
+export const EDITOS_BY_SLUG: Map<string, Resolver> = indexBySlug(EDITO_SOURCE);
+export const ARTICLES_BY_SLUG: Map<string, Resolver> = indexBySlug(ARTICLES_SOURCE);
 
-function indexBySlug(modules: object): Map<string, string> {
-    let referential = new Map<string, string>();
-    for(let [path] of Object.entries(modules)) {
+type Resolver = () => Promise<any>;
+
+function indexBySlug(modules: object): Map<string, Resolver> {
+    let referential = new Map<string, Resolver>();
+    for(let [path, resolver] of Object.entries(modules)) {
         let slug = slugFromPath(path);
         if(slug) {
-            referential.set(slug, path)
+            referential.set(slug, resolver)
         }
     }
 
@@ -20,7 +22,7 @@ function indexBySlug(modules: object): Map<string, string> {
 
 export async function parseMetadataInPath(modules: object): Promise<SvxInfo[]> {
     const postPromises = [];
-    console.log(modules)
+
     for (let [path, resolver] of Object.entries(modules)) {
         const promise = resolver().then((post: any): SvxInfo => ({
             path,

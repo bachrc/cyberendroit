@@ -1,5 +1,4 @@
 <script lang="ts">
-
     import type {Pouet} from "$lib/comments";
     import {pouetsFromResponse} from "$lib/comments";
     import Comment from "./Comment.svelte";
