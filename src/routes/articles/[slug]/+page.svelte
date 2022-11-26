@@ -5,6 +5,7 @@
     export let data: Article;
     const metadata = data.metadata;
 
+    import ArticleLayout from "$components/layouts/standard-article.svelte"
 </script>
 
 <svelte:head>
@@ -38,7 +39,9 @@
 
 </svelte:head>
 <div class="flex flex-col">
-    {@html data.html}
+    <ArticleLayout title={metadata.title} publication_date={metadata.publication_date}>
+        {@html data.html}
+    </ArticleLayout>
     <hr class="my-4"/>
     <div class="sm:w-1/2 self-center">
         <MastodonComments pouetUrl={metadata.pouet_url} />
