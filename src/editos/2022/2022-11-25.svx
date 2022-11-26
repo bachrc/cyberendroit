@@ -2,6 +2,7 @@
 title: Des commentaires basés sur Mastodon
 publication_date: 2022-11-25T18:00:23+01:00
 pouet_url: https://mamot.fr/@pacha/109410308235353014
+layout: article
 ---
 
 Et re-bonjour à toutes et tous !
