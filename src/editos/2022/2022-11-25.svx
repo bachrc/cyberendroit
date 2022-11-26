@@ -1,7 +1,6 @@
 ---
 title: Des commentaires basés sur Mastodon
 publication_date: 2022-11-25T18:00:23+01:00
-layout: edito
 ---
 
 Et re-bonjour à toutes et tous !

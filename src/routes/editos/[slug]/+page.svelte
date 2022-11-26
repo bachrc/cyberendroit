@@ -2,6 +2,7 @@
     import type {Article, Edito} from "../../../lib/models";
     import "../../../styles/code-block.css"
     import MastodonComments from "../../../components/comments/MastodonComments.svelte";
+    import {prettyDateFromIsoString} from "$lib/dates.js";
     export let data: Edito;
     const metadata = data.metadata;
 
@@ -27,8 +28,13 @@
     <meta name="twitter:title" content={metadata.title} />
 
 </svelte:head>
-<div class="flex flex-col">
-    {@html data.content}
+<div class="flex flex-col items-center">
+    <h1 class="text-3xl font-bold mb-8">{metadata.title}</h1>
+    <div class="sm:w-1/2 prose">
+        {@html data.content}
+        <span class="text-xs">Publié le {prettyDateFromIsoString(metadata.publication_date)}</span>
+    </div>
+
     {#if (metadata.pouet_url)}
         <hr class="my-4"/>
         <div class="sm:w-1/2 self-center">

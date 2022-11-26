@@ -21,7 +21,8 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			$articles: resolve('./src/articles'),
-			$editos: resolve('./src/editos')
+			$editos: resolve('./src/editos'),
+			$components: resolve('./src/components'),
 		},
 	}
 };

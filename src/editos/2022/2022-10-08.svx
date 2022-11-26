@@ -1,7 +1,6 @@
 ---
 title: Nous voili partis
 publication_date: 2022-10-08T18:20:18+02:00
-layout: edito
 ---
 
 Yo, ceci est un edito de test, prends tes aises !

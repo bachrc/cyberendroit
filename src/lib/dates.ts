@@ -9,3 +9,14 @@ export function prettyDateFromIsoString(iso_string: string) {
         minute: "numeric"
     })
 }
+
+export function prettyDateFromDate(date: Date) {
+
+    return date.toLocaleDateString('fr-FR', {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "numeric",
+        minute: "numeric"
+    })
+}
