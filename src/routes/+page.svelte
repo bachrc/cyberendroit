@@ -20,8 +20,13 @@
         <CyberContainer2 title="Futur">
             <blockquote>Puisque les jours se suivent sans s'améliorer, je préfère regarder en arrière parce que dans le temps, même le futur était mieux.</blockquote>
         </CyberContainer2>
-        <CyberContainer2 title="Oui">
-            Prends ton siège billy
+        <CyberContainer2 title="Musique du moment">
+            <div class="flex flex-col">
+                <iframe title="Fia" style="border: 0; width: 100%; height: 440px;" src="https://bandcamp.com/EmbeddedPlayer/album=189105059/size=large/bgcol=ffffff/linkcol=63b2cc/tracklist=false/track=884844578/transparent=true/" seamless><a href="https://blood-music.bandcamp.com/album/corpo-mente">Corpo-Mente by Corpo-Mente</a></iframe>
+                <p class="italic">
+                    Cette musique sent le froid et l'hiver. Le temps est grisâtre, la terre aride et l'horizon infini.
+                </p>
+            </div>
         </CyberContainer2>
     </div>
 </div>
