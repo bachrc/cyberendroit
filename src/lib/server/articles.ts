@@ -1,17 +1,21 @@
 import type {ArticleMetadata, EditoMetadata} from "../models";
-import {fromMetadataToArticle, parseEditoMetadata, slugFromPath} from "../articles";
+import {fromMetadataToArticle, parseEditoMetadata} from "../articles";
 import type {Edito} from "../models";
 import {
     error,
-    type ServerLoadEvent
 } from "@sveltejs/kit";
 import type {Article} from "../models";
 import {ARTICLES_BY_SLUG, ARTICLES_SOURCE, EDITO_SOURCE, EDITOS_BY_SLUG, parseMetadataInPath, type SvxInfo} from "./svx";
+
+enum ActivityType {
+    ARTICLE, EDITO
+}
 
 interface Activity {
     title: string,
     summary: string,
     url: string,
+    type: ActivityType,
     date: Date,
     tags: string[]
 }
@@ -38,7 +42,8 @@ function articleToActivity(article: ArticleMetadata): Activity {
         summary: article.description,
         url: article.url,
         date: article.publication_date,
-        tags: article.tags.concat(["article"])
+        tags: article.tags,
+        type: ActivityType.ARTICLE
     }
 }
 
@@ -48,7 +53,8 @@ function editoToActivity(edito: EditoMetadata): Activity {
         summary: "Edito",
         title: edito.title,
         url: `https://cyberendroit.net/edito/${edito.slug}`,
-        tags: ["edito"]
+        tags: [],
+        type: ActivityType.EDITO
     }
 }
 

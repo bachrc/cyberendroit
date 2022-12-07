@@ -21,6 +21,7 @@ export async function generateFeed(): Promise<string> {
                 <id>${activity.url}</id>
                 <updated>${activity.date.toISOString()}</updated>
                 <summary>${activity.summary}</summary>
+                <category term="${activity.type.toString()}" />
                 ${activity.tags.map(tag => `
                 <category term="${tag}" />
                 `).join('')}
