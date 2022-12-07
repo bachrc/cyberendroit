@@ -58,7 +58,6 @@
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        min-width: 75%;
         flex-grow: 1;
     }
 </style>
