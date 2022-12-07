@@ -3,7 +3,7 @@ import {generateFeed} from "$lib/server/atom-feeds";
 export const prerender = true;
 
 export async function GET() {
-    const body = generateFeed()
+    const body = await generateFeed()
 
     return new Response(body, {
         headers : {
