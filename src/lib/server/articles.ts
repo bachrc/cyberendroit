@@ -12,7 +12,8 @@ interface Activity {
     title: string,
     summary: string,
     url: string,
-    date: Date
+    date: Date,
+    tags: string[]
 }
 
 export async function loadActivity(): Promise<Activity[]> {
@@ -36,7 +37,8 @@ function articleToActivity(article: ArticleMetadata): Activity {
         title: article.title,
         summary: article.description,
         url: article.url,
-        date: article.publication_date
+        date: article.publication_date,
+        tags: article.tags.concat(["article"])
     }
 }
 
@@ -45,8 +47,8 @@ function editoToActivity(edito: EditoMetadata): Activity {
         date: edito.publication_date,
         summary: "Edito",
         title: edito.title,
-        url: `https://cyberendroit.net/edito/${edito.slug}`
-
+        url: `https://cyberendroit.net/edito/${edito.slug}`,
+        tags: ["edito"]
     }
 }
 

@@ -7,7 +7,7 @@ export async function generateFeed(): Promise<string> {
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>cyberendroit</title>
     <link href="https://cyberendroit.net/"/>
-    <updated>2022-12-06T18:30:02Z</updated>
+    <updated>${activities[0]?.date.toISOString()}</updated>
     <author>
         <name>pacha</name>
     </author>
@@ -21,10 +21,11 @@ export async function generateFeed(): Promise<string> {
                 <id>${activity.url}</id>
                 <updated>${activity.date.toISOString()}</updated>
                 <summary>${activity.summary}</summary>
+                ${activity.tags.map(tag => `
+                <category term="${tag}" />
+                `).join('')}
             </entry>
-    `})}
-    
-
+    `}).join('')}
 </feed>
 `
 }
