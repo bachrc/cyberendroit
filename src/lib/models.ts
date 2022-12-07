@@ -22,7 +22,8 @@ interface Edito {
 }
 
 interface ArticlesFromServer {
-    articles : ArticleMetadata[]
+    articles : ArticleMetadata[],
+    tag? : string
 }
 
 interface EditosFromServer {

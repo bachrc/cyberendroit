@@ -1,7 +1,7 @@
 <script lang="ts">
     import type {ArticleMetadata, ArticlesFromServer} from "$lib/models";
-    import ArticleCard from "../../components/articles/ArticleCard.svelte";
-    import CyberContainer from "../../components/CyberContainer.svelte";
+    import ArticleCard from "$components/articles/ArticleCard.svelte";
+    import CyberContainer from "$components/CyberContainer.svelte";
 
     export let data: ArticlesFromServer;
     const articles: ArticleMetadata[] = data.articles;
@@ -12,7 +12,7 @@
 </svelte:head>
 
 <div class="page-container">
-    <h1 class="header-text">Le Blogidélice.</h1>
+    <h1 class="header-text">{data.tag}</h1>
     <div class="articles-panel">
         <div class="articles-list">
             {#each articles as article}
@@ -30,8 +30,7 @@
 
 <style>
     aside {
-        min-width: 400px;
-        margin-top: 20px;
+        min-width: 300px;
     }
 
     .page-container {
@@ -50,7 +49,7 @@
     .articles-panel {
         display: flex;
         flex-direction: row;
-        gap: 15px;
+        gap: 10px;
         justify-content: space-between;
     }
 

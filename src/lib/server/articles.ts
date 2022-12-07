@@ -67,6 +67,12 @@ export async function loadArticles(): Promise<ArticleMetadata[]> {
     return posts.filter((post) => post.published);
 }
 
+export async function loadArticlesWithTag(tag: string): Promise<ArticleMetadata[]> {
+    const articles = await loadArticles();
+
+    return articles.filter(article => article.tags.includes(tag))
+}
+
 export async function loadEditos() : Promise<EditoMetadata[]> {
     const svxs: SvxInfo[] = await parseMetadataInPath(EDITO_SOURCE);
 

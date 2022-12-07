@@ -20,7 +20,7 @@
     article {
         display: flex;
         flex-direction: column;
-        color: #484848;
+        color: #343434;
         line-height: 1.7em;
     }
 

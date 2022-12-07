@@ -30,6 +30,7 @@
         border-width: 2px;
         border-radius: 0.125rem;
         overflow: hidden;
+        box-shadow: 4px 4px 6px 1px rgba(40, 51, 98, 0.4);
     }
 
     .purple-container {
