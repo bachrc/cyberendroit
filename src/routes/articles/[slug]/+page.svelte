@@ -42,9 +42,11 @@
     <ArticleLayout title={metadata.title} publication_date={metadata.publication_date}>
         {@html data.html}
     </ArticleLayout>
-    <hr class="my-4"/>
-    <div class="sm:w-1/2 self-center">
-        <MastodonComments pouetUrl={metadata.pouet_url} />
-    </div>
+    {#if metadata.pouet_url}
+        <hr class="my-4"/>
+        <div class="sm:w-1/2 self-center">
+            <MastodonComments pouetUrl={metadata.pouet_url} />
+        </div>
+    {/if}
 </div>
 

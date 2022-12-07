@@ -9,7 +9,7 @@
 <fieldset>
     <legend>Article</legend>
     <div class="card-content">
-        <a href="{article.url}">
+        <a href="/{article.url}">
             <h1 class="titre">{article.title}</h1>
         </a>
         <h3 class="description">{article.description}</h3>

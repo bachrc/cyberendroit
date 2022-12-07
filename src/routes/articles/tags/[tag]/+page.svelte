@@ -30,7 +30,8 @@
 
 <style>
     aside {
-        min-width: 300px;
+        min-width: 400px;
+        margin-top: 20px;
     }
 
     .page-container {
@@ -49,7 +50,7 @@
     .articles-panel {
         display: flex;
         flex-direction: row;
-        gap: 10px;
+        gap: 15px;
         justify-content: space-between;
     }
 
@@ -61,4 +62,3 @@
         flex-grow: 1;
     }
 </style>
-
