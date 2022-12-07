@@ -11,7 +11,7 @@
 <div class="min-h-screen flex flex-col bg-indigo-200">
     <Header/>
     <NavBar/>
-    <div class="grow">
+    <div class="grow container mx-auto">
         <slot />
     </div>
     <Footer/>

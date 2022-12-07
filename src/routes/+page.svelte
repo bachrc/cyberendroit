@@ -7,7 +7,7 @@
     const editos: Edito[] = data.editos
 </script>
 
-<div class="container mx-auto flex flex-col md:flex-row gap-2 px-4">
+<div class="flex flex-col md:flex-row gap-2 px-4">
     <div class="md:w-3/4 flex flex-col gap-4">
         {#each editos as edito}
             <CyberContainer title={edito.metadata.title} url={`/editos/${edito.metadata.slug}`}>
