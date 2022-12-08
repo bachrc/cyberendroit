@@ -26,13 +26,45 @@
     $: defaultIllu = colors[type]["default-illu"]
 </script>
 
-<div class="my-4 -rotate-3 rounded-xl {borderColor}">
-    <div class="rotate-3 flex flex-row py-2 px-8 py-4 gap-8 items-center w-full rounded-xl border-solid {backgroundColor}">
-        <div class="text-6xl text-center">
+<div class="background-panel">
+    <div class="front-panel">
+        <div class="illu">
             <slot name="illu">{defaultIllu}</slot>
         </div>
-        <span class="leading-8 font-sans text-left {textStyle}">
+        <span class="content">
             <slot name="content"></slot>
         </span>
     </div>
 </div>
+
+<style>
+    .background-panel {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        transform: rotate(-3deg);
+    }
+
+    .front-panel {
+        transform: rotate(3deg);
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        padding: 1rem 2rem;
+        align-items: center;
+        width: 100%;
+        border-radius: 0.75rem;
+        border-style: solid;
+    }
+
+    .illu {
+        font-size: 3.75rem;
+        line-height: 1;
+        text-align: center;
+    }
+
+    .content {
+        line-height: 2rem;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        text-align: left;
+    }
+</style>
