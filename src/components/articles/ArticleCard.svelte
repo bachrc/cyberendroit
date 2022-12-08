@@ -48,12 +48,10 @@
         background-color: rgba(255, 255, 255, 0.2);
         border-style: double;
         border-width: 4px;
-        padding-right: 20px;
-        padding-left: 20px;
-        padding-bottom: 5px;
+        padding: 10px 20px;
         border-radius: 10px;
         border-color: rgb(126, 146, 225);
-        width: 100%;
+        /*width: 100%;*/
         box-shadow: 6px 6px 6px 1px rgba(89, 115, 222, 0.4);
     }
 

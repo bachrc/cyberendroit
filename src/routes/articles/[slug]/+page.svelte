@@ -66,8 +66,10 @@
         text-align: center;
         color: transparent;
         /*background-clip: text;*/
-        background-image: linear-gradient(to right, #7e22ce, #4ade80);
         align-self: center;
+        background: -webkit-linear-gradient(#7e22ce, #4ade80);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
 
     .publication-date {
