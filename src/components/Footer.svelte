@@ -4,19 +4,44 @@
     import FaRssSquare from 'svelte-icons/fa/FaRssSquare.svelte'
 </script>
 
-<div class="w-full flex flex-col justify-center items-center py-4 gap-2">
+<div class="container">
     <div>
         <span>cyberendroit.net - développé avec amour par pacha</span>
     </div>
-    <div class="flex flex-row items-center gap-8">
-        <div class="h-12 w-12">
+    <div class="items">
+        <div>
             <a href="https://github.com/bachrc"><FaGithub/></a>
         </div>
-        <div class="h-12 w-12">
+        <div>
             <a href="https://mamot.fr/@pacha"><FaMastodon/></a>
         </div>
-        <div class="h-12 w-12">
+        <div>
             <a href="/atom.xml"><FaRssSquare/></a>
         </div>
     </div>
 </div>
+
+<style>
+    .container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        gap: 0.5rem;
+    }
+
+    .items {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .items * {
+        height: 3rem;
+        width: 3rem;
+    }
+</style>

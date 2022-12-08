@@ -8,11 +8,52 @@
 <svelte:head>
     <title>cyberpacha.space</title>
 </svelte:head>
-<div class="min-h-screen flex flex-col bg-indigo-200">
+<main>
     <Header/>
     <NavBar/>
-    <div class="grow container mx-auto">
+    <div class="content">
         <slot />
     </div>
     <Footer/>
-</div>
+</main>
+<style>
+    main {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(199 210 254)
+    }
+
+    .content {
+        flex-grow: 1;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+
+    @media (min-width: 640px) {
+        .content {
+            max-width: 640px;
+        }
+    }
+    @media (min-width: 768px) {
+        .content {
+            max-width: 768px;
+        }
+    }
+    @media (min-width: 1024px) {
+        .content {
+            max-width: 1024px;
+        }
+    }
+    @media (min-width: 1280px) {
+        .content {
+            max-width: 1280px;
+        }
+    }
+    @media (min-width: 1536px) {
+        .content {
+            max-width: 1536px;
+        }
+    }
+</style>

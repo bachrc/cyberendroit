@@ -18,11 +18,12 @@
             .then(it => pouetsFromResponse(it))
     }
 </script>
-<div class="flex flex-col">
-    <h1 class="text-5xl pb-8 font-['Serpentine']">Commentaires</h1>
-    <div class="flex flex-col gap-4">
+
+<div class="container">
+    <h1 class="title">Commentaires</h1>
+    <div class="comments">
         {#await fetchResponsePouets(pouetUrl)}
-            <p>loading</p>
+            <p>loading comments..</p>
         {:then pouets}
             {#each pouets as pouet}
                 <Comment pouet={pouet}/>
@@ -31,5 +32,36 @@
             <p style="color: red">{error.message}</p>
         {/await}
     </div>
-    <span class="italic my-4">Vous pouvez ajouter un commentaire en <a class="underline underline-offset-4" href={pouetUrl}>répondant sur Mastodon</a> !</span>
+    <span class="add-comment">Vous pouvez ajouter un commentaire en <a href={pouetUrl}>répondant sur Mastodon</a> !</span>
 </div>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .title {
+        font-size: 3rem;
+        line-height: 1;
+        padding-bottom: 2rem;
+        font-family: 'Serpentine', serif;
+    }
+
+    .comments {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .add-comment {
+        font-style: italic;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .add-comment a {
+        text-decoration-line: underline;
+        text-underline-offset: 4px;
+    }
+</style>

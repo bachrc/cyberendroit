@@ -1,4 +1,16 @@
-<div class="flex flex-row justify-center items-center h-16 gap-8 font-['Good_timing'] ">
+<nav>
     <a href="/"><span>Accueil</span></a>
     <a href="/articles"><span>Blog</span></a>
-</div>
+</nav>
+
+<style>
+    nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
+        gap: 2rem;
+        font-family: 'Good timing',serif;
+    }
+</style>

@@ -1,12 +1,24 @@
 <script>
-    import {prettyDateFromIsoString} from "$lib/dates";
-    export let title
     export let publication_date
 </script>
-<div class="container mx-auto">
-    <article class="mt-12 mx-auto flex flex-col prose prose-xl prose-p:my-2 font-serif px-4">
-        <h1 class="text-2xl md:text-6xl font-['Serpentine'] text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-700 to-green-400 self-center">{title}</h1>
-        <span class="text-sm">Publié le {prettyDateFromIsoString(publication_date)}</span>
+<div class="container-centre">
+    <article>
         <slot></slot>
     </article>
 </div>
+
+<style>
+    article :global(h1) {
+        font-size: 6rem;
+        line-height: 2rem;
+    }
+    article {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+        max-width: 828px;
+    }
+</style>

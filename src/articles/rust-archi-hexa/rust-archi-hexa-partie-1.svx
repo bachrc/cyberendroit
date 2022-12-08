@@ -71,7 +71,7 @@ Un `--lib` a été spécifié, qui ne va pas générer un exécutable mais une l
 
 Ainsi nous pouvons voir que des fichiers ont été créés :
 
-```bash
+```
 bienveillance-core
 ├── Cargo.toml
 └── src
@@ -110,7 +110,7 @@ C'est un modèle de test par défaut, qui s'assure que.... 2 et 2 font 4.
 
 Nous pouvons tout simplement lancer les tests afin de nous en assurer :
 
-```rust
+```bash
 cargo test
 ```
 

@@ -1,9 +1,20 @@
 <style>
+    header {
+        height: 15rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center bottom -5rem;
+        background-attachment: fixed;
+        background-image: url('/images/bociel.webp');
+    }
     .text-on-header {
         font-size: 5vw;
+        font-family: 'Good Timing',fantasy;
     }
 </style>
 
-<header class="h-60 flex items-center justify-center bg-cover bg-[center_bottom_-5rem] bg-fixed bg-[url('/images/bociel.webp')]">
-    <span class="text-on-header font-['Good_Timing'] drop-shadow-lg">cyberendroit.net</span>
+<header>
+    <span class="text-on-header">cyberendroit.net</span>
 </header>

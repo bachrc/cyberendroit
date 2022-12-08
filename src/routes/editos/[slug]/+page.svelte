@@ -28,18 +28,52 @@
     <meta name="twitter:title" content={metadata.title} />
 
 </svelte:head>
-<div class="flex flex-col items-center">
-    <h1 class="text-3xl font-bold mb-8">{metadata.title}</h1>
-    <div class="sm:w-1/2 prose">
+<div class="content">
+    <h1 class="title">{metadata.title}</h1>
+    <article>
         {@html data.content}
-        <span class="text-xs">Publié le {prettyDateFromIsoString(metadata.publication_date)}</span>
-    </div>
+        <span class="published-date">Publié le {prettyDateFromIsoString(metadata.publication_date)}</span>
+    </article>
 
     {#if (metadata.pouet_url)}
-        <hr class="my-4"/>
-        <div class="sm:w-1/2 self-center">
+        <hr class="separator"/>
+        <div class="comments">
             <MastodonComments pouetUrl={metadata.pouet_url} />
         </div>
     {/if}
 </div>
+
+<style>
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+        margin-bottom: 2rem;
+    }
+
+    article {
+        width: 50%;
+    }
+
+    .published-date {
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .separator {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .comments {
+        width: 50%;
+        align-self: center;
+    }
+
+</style>
 

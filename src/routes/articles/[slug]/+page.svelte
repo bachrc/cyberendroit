@@ -6,6 +6,7 @@
     const metadata = data.metadata;
 
     import ArticleLayout from "$components/layouts/standard-article.svelte"
+    import {prettyDateFromIsoString} from "$lib/dates.js";
 </script>
 
 <svelte:head>
@@ -38,15 +39,49 @@
     <meta name="twitter:image" content={metadata.image} />
 
 </svelte:head>
-<div class="flex flex-col">
-    <ArticleLayout title={metadata.title} publication_date={metadata.publication_date}>
+<div class="content">
+    <span class="cyber-title">{metadata.title}</span>
+    <span class="publication-date">Publié le {prettyDateFromIsoString(metadata.publication_date)}</span>
+    <ArticleLayout publication_date={metadata.publication_date}>
         {@html data.html}
     </ArticleLayout>
     {#if metadata.pouet_url}
-        <hr class="my-4"/>
-        <div class="sm:w-1/2 self-center">
+        <hr class="separator"/>
+        <div class="comments">
             <MastodonComments pouetUrl={metadata.pouet_url} />
         </div>
     {/if}
 </div>
 
+<style>
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cyber-title {
+        font-size: 3.75rem;
+        line-height: 1;
+        font-family: 'Serpentine',serif;
+        text-align: center;
+        color: transparent;
+        /*background-clip: text;*/
+        background-image: linear-gradient(to right, #7e22ce, #4ade80);
+        align-self: center;
+    }
+
+    .publication-date {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+
+    .separator {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .comments {
+        width: 50%;
+        align-self: center;
+    }
+</style>
