@@ -15,7 +15,7 @@
         "QUESTION" : {
             "bg-color" : "#ffedd5",
             "border-color" : "#fed7aa",
-            "text-style" : "font-size: 1.3rem; font-weight: bold;",
+            "text-style" : "font-size: 1.3rem; font-weight: 500;",
             "default-illu" : "🤔"
         }
     }

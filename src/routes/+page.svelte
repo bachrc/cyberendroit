@@ -17,7 +17,7 @@
     </div>
     <aside>
         <CyberContainer title="Futur" theme="cyan">
-            <blockquote>Puisque les jours se suivent sans s'améliorer, je préfère regarder en arrière parce que dans le temps, même le futur était mieux.</blockquote>
+            <blockquote>Je me suis cyber-perdu</blockquote>
         </CyberContainer>
         <CyberContainer title="Musique pour vous accompagner" theme="cyan">
             <div class="musique">

@@ -51,7 +51,6 @@
         padding: 10px 20px;
         border-radius: 10px;
         border-color: rgb(126, 146, 225);
-        /*width: 100%;*/
         box-shadow: 6px 6px 6px 1px rgba(89, 115, 222, 0.4);
     }
 

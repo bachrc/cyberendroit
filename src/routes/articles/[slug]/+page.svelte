@@ -67,14 +67,16 @@
     }
 
     .cyber-title {
-        font-size: 3.75rem;
+        font-size: 4rem;
+        padding: 10px;
         line-height: 1;
         font-family: 'Serpentine',serif;
+        font-style: italic;
         text-align: center;
         color: transparent;
         /*background-clip: text;*/
         align-self: center;
-        background: -webkit-linear-gradient(#7e22ce, #4ade80);
+        background: -webkit-linear-gradient(right, #7e22ce, #4ade80);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }

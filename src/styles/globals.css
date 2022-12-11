@@ -1,6 +1,11 @@
 * {
-    font-family: sans-serif;
-    line-height: 1.5rem;
+    font-family: "OpenSans", sans-serif;
+    line-height: 1.3rem;
+}
+
+h1 {
+    font-family: "OpenSans", sans-serif;
+    font-weight: bold;
 }
 
 a {

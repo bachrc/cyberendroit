@@ -57,7 +57,14 @@
     }
 
     article {
+        font-family: Merriweather,serif;
+        line-height: 1.5em;
+        color: #2f2f2f;
         width: 50%;
+    }
+
+    article :global(p) {
+        margin-bottom: 0.5em;
     }
 
     .published-date {
