@@ -55,7 +55,6 @@ Nous nous retrouvons donc avec un flux comme celui ci :
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
     <title>cyberendroit</title>
     <link href="https://cyberendroit.net/"/>
     <updated>2022-12-07T18:30:00Z</updated>
@@ -153,11 +152,11 @@ export async function GET() {
     const body = '';
 
     return new Response(body, {
-    headers : {
-    'Cache-Control': 'max-age=0, s-maxage=3600',
-    'Content-Type': 'application/xml',
-}
-});
+        headers : {
+            'Cache-Control': 'max-age=0, s-maxage=3600',
+            'Content-Type': 'application/xml',
+        }
+    });
 }
 ```
 

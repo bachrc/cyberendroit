@@ -3,20 +3,20 @@
 
     const colors = {
         "WARN" : {
-            "bg-color" : "bg-amber-100",
-            "border-color" : "bg-amber-200",
+            "bg-color" : "#fef3c7",
+            "border-color" : "#fde68a",
             "default-illu" : "⚠️"
         },
         "INFO" : {
-            "bg-color" : "bg-violet-300",
-            "border-color": "bg-violet-400",
+            "bg-color" : "#c4b5fd",
+            "border-color": "#a78bfa",
             "default-illu" : "💻"
         },
         "QUESTION" : {
-            "bg-color" : "bg-orange-100",
-            "border-color" : "bg-orange-200",
-            "text-style" : "text-xl font-bold",
-            "default-illu" : "⁉️"
+            "bg-color" : "#ffedd5",
+            "border-color" : "#fed7aa",
+            "text-style" : "font-size: 1.3rem; font-weight: bold;",
+            "default-illu" : "🤔"
         }
     }
 
@@ -26,12 +26,12 @@
     $: defaultIllu = colors[type]["default-illu"]
 </script>
 
-<div class="background-panel">
-    <div class="front-panel">
+<div class="background-panel" style="background-color: {borderColor}">
+    <div class="front-panel" style="background-color: {backgroundColor}">
         <div class="illu">
             <slot name="illu">{defaultIllu}</slot>
         </div>
-        <span class="content">
+        <span class="content" style="{textStyle}">
             <slot name="content"></slot>
         </span>
     </div>
@@ -39,9 +39,9 @@
 
 <style>
     .background-panel {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         transform: rotate(-3deg);
+        border-radius: 0.75rem;
     }
 
     .front-panel {
@@ -51,7 +51,6 @@
         gap: 2rem;
         padding: 1rem 2rem;
         align-items: center;
-        width: 100%;
         border-radius: 0.75rem;
         border-style: solid;
     }
@@ -63,8 +62,14 @@
     }
 
     .content {
+        font-size: 1.1rem;
         line-height: 2rem;
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         text-align: left;
+    }
+
+    .content :global(a) {
+        text-decoration: underline;
+        text-underline-offset: 5px;
     }
 </style>

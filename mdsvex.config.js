@@ -7,11 +7,6 @@ const config = defineConfig({
 		dashes: 'oldschool'
 	},
 
-	layout: {
-		article : "./src/components/layouts/standard-article.svelte",
-		edito : "./src/components/layouts/edito.svelte"
-	},
-
 	remarkPlugins: [],
 	rehypePlugins: []
 });

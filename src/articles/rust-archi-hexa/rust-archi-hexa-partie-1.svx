@@ -390,5 +390,5 @@ Voilà, en résumé, l'explication de l'ownership, qui peut sembler complexe de 
 Dans le prochain article, nous allons continuer nos cycles de développement, afin d'obtenir toujours plus de chaleur. Comme avec des accueils personnalisés, accordés à nos pronoms, ainsi que des compliments ! Que demander de plus ?
 
 <script>
-    import Callout from "../../components/articles/Callout.svelte";
+    import Callout from "$components/articles/Callout.svelte";
 </script>

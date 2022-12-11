@@ -41,22 +41,29 @@
 </svelte:head>
 <div class="content">
     <span class="cyber-title">{metadata.title}</span>
-    <span class="publication-date">Publié le {prettyDateFromIsoString(metadata.publication_date)}</span>
-    <ArticleLayout publication_date={metadata.publication_date}>
-        {@html data.html}
-    </ArticleLayout>
-    {#if metadata.pouet_url}
-        <hr class="separator"/>
-        <div class="comments">
-            <MastodonComments pouetUrl={metadata.pouet_url} />
-        </div>
-    {/if}
+    <div class="centered-article">
+        <span class="publication-date">Publié le {prettyDateFromIsoString(metadata.publication_date)}</span>
+        <ArticleLayout publication_date={metadata.publication_date}>
+            {@html data.html}
+        </ArticleLayout>
+        {#if metadata.pouet_url}
+            <hr class="separator"/>
+            <div class="comments">
+                <MastodonComments pouetUrl={metadata.pouet_url} />
+            </div>
+        {/if}
+    </div>
 </div>
 
 <style>
     .content {
         display: flex;
         flex-direction: column;
+    }
+
+    .centered-article {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .cyber-title {
