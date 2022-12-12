@@ -7,7 +7,7 @@
     import Footer from "../components/Footer.svelte";
 </script>
 <svelte:head>
-    <title>cyberpacha.space</title>
+    <title>cyberendroit.net</title>
 </svelte:head>
 <main>
     <Header/>
