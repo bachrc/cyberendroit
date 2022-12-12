@@ -4,7 +4,7 @@ description: Voyons voir comment générer un flux Atom avec Sveltekit, pour ten
 tags: dev,javascript,svelte
 published: true
 publication_date: 2022-12-07T20:19:14+02:00
-pouet_url: https://mamot.fr/@pacha/109496973132115259
+pouet_url: https://mamot.fr/@pacha/109503035314258263
 ---
 
 # Contexte
