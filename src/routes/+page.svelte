@@ -21,7 +21,7 @@
         </CyberContainer>
         <CyberContainer title="Musique pour vous accompagner" theme="cyan">
             <div class="musique">
-                <iframe title="Fia" style="border: 0; width: 100%; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=189105059/size=large/bgcol=ffffff/linkcol=63b2cc/tracklist=false/track=884844578/transparent=true/" seamless><a href="https://blood-music.bandcamp.com/album/corpo-mente">Corpo-Mente by Corpo-Mente</a></iframe>
+                <iframe title="Fia" style="border: 0; width: auto; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=189105059/size=large/bgcol=ffffff/linkcol=63b2cc/tracklist=false/track=884844578/transparent=true/" seamless><a href="https://blood-music.bandcamp.com/album/corpo-mente">Corpo-Mente by Corpo-Mente</a></iframe>
                 <span>Cette musique sent le froid et l'hiver. Le temps est grisâtre, la terre aride et l'horizon infini.</span>
             </div>
         </CyberContainer>
@@ -31,7 +31,7 @@
 <style>
     main {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         gap: 0.5rem;
         padding-left: 1rem;
         padding-right: 1rem;
@@ -40,7 +40,7 @@
     .editos {
         display: flex;
         flex-direction: column;
-        width: 75%;
+        width: 100%;
         gap: 1rem;
     }
 
@@ -48,12 +48,26 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        width: 25%
+        width: 100%
     }
 
     .musique {
         display: flex;
         flex-direction: column;
         font-style: italic;
+    }
+
+    @media only screen and (min-width: 768px) {
+        main {
+            flex-direction: row;
+        }
+
+        .editos {
+            width: 75%;
+        }
+
+        aside {
+            width: 25%;
+        }
     }
 </style>

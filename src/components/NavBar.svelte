@@ -1,6 +1,7 @@
 <nav>
     <a href="/"><span>Accueil</span></a>
     <a href="/articles"><span>Blog</span></a>
+    <a href="/moi"><span>Moi</span></a>
 </nav>
 
 <style>

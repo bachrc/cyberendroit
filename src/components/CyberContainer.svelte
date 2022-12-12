@@ -1,6 +1,6 @@
 <script lang="ts">
     export let title;
-    export let url: string | undefined;
+    export let url: string | undefined = undefined;
     export let theme: "purple" | "cyan" = "purple"
 
     let purpleTheme = theme === "purple"
@@ -42,7 +42,6 @@
     }
 
     .cyber-header {
-        width: 100%;
         padding: 0.5rem 0.5rem;
     }
 

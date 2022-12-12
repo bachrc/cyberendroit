@@ -12,7 +12,7 @@
         <a href="/{article.url}">
             <h1 class="titre">{article.title}</h1>
         </a>
-        <h3 class="description">{article.description}</h3>
+        <span class="description">{article.description}</span>
         {#if article.tags.length > 0}
             <div class="tags">
                 <span>Thèmes : </span>
@@ -31,11 +31,6 @@
         line-height: 2rem;
         font-weight: bold;
         margin-bottom: 0.3em;
-    }
-
-    h3 {
-        font-size: 1.1rem;
-        line-height: 1.7rem;
     }
 
     .date {

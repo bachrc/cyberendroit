@@ -14,49 +14,48 @@
     }
 
     article :global(h1) {
-        font-size: 2.2rem;
-        line-height: 2.5rem;
-        margin-top: 0.5rem;
-        margin-bottom: 1rem;
+        font-size: 2.2em;
+        margin-top: 0.5em;
+        margin-bottom: 1em;
     }
 
     article :global(h2) {
-        font-size: 2rem;
-        line-height: 2.5rem;
-        margin-bottom: 1rem;
-        margin-top: 0.5rem;
+        font-size: 2em;
+        line-height: 1em;
+        margin-bottom: 1em;
+        margin-top: 0.5em;
     }
 
     article :global(h3) {
-        font-size: 1.8rem;
-        line-height: 2.3rem;
-        margin-bottom: 1rem;
-        margin-top: 0.5rem;
+        font-size: 1.8em;
+        line-height: 1em;
+        margin-bottom: 1em;
+        margin-top: 0.5em;
     }
     article :global(h4) {
-        font-size: 1.6rem;
-        line-height: 2.2rem;
-        margin-bottom: 1rem;
+        font-size: 1.6em;
+        line-height: 1em;
+        margin-bottom: 1em;
     }
 
     article :global(h5) {
-        font-size: 1.4rem;
-        line-height: 2rem;
-        margin-bottom: 1rem;
+        font-size: 1.4em;
+        line-height: 1em;
+        margin-bottom: 1em;
     }
 
     article > :global(*) {
-        margin-bottom: 1rem;
+        margin-bottom: 1em;
     }
 
     article :global(p), :global(li) {
         color: #343434;
-        font-size: 1.2rem;
-        line-height: 2rem;
+        font-size: 1em;
+        line-height: 1.6em;
     }
 
     article :global(code) {
-        font-size: 1rem;
+        font-size: 1em;
         font-family: monospace;
         background-color: rgba(10, 10, 208, 0.05);
         border-radius: 5px;
@@ -65,10 +64,6 @@
 
     article :global(strong) {
         font-weight: bold;
-    }
-
-    article :global(pre) {
-        border-radius: 10px;
     }
 
     article :global(table) {
@@ -110,5 +105,18 @@
         flex-direction: column;
         font-family: "Merriweather", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
         max-width: 828px;
+        padding: 10px;
+    }
+
+    @media only screen and (min-width: 768px) {
+        article :global(p), :global(li) {
+            color: #343434;
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
+
+        article :global(pre) {
+            font-size: 1.2rem;
+        }
     }
 </style>

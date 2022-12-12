@@ -61,13 +61,13 @@
         flex-direction: column;
     }
 
-    .centered-article {
+    .centered-article {/*
         margin-left: auto;
-        margin-right: auto;
+        margin-right: auto;*/
     }
 
     .cyber-title {
-        font-size: 4rem;
+        font-size: 2rem;
         padding: 10px;
         line-height: 1;
         font-family: 'Serpentine',serif;
@@ -79,6 +79,17 @@
         background: -webkit-linear-gradient(right, #7e22ce, #4ade80);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
+    }
+
+    @media only screen and (min-width: 768px) {
+        .cyber-title {
+            font-size: 4rem;
+        }
+
+        .centered-article {
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 
     .publication-date {
