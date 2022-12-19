@@ -22,7 +22,7 @@
         min-height: 100vh;
         display: flex;
         flex-direction: column;
-        background-color: rgb(199 210 254)
+        background-color: rgb(199 210 254);
     }
 
     .content {

@@ -1,3 +1,5 @@
+export type Resolver = () => Promise<any>;
+
 interface ArticleMetadata {
     title: string,
     description: string,
@@ -12,7 +14,8 @@ interface ArticleMetadata {
 interface EditoMetadata {
     title: string;
     publication_date: Date;
-    slug: string;
+    content_resolver: Resolver;
+    url: string,
     pouet_url?: string
 }
 

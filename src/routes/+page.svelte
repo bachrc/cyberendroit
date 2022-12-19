@@ -11,7 +11,7 @@
     <div class="editos">
         {#each editos as edito}
             <CyberContainer title={edito.metadata.title} url={`/editos/${edito.metadata.slug}`}>
-                <EditoLayout publication_date={edito.metadata.publication_date}>{@html edito.content}</EditoLayout>
+                {@html edito.content}
             </CyberContainer>
         {/each}
     </div>

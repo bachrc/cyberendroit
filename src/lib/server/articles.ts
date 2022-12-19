@@ -4,11 +4,11 @@ import type {Edito} from "../models";
 import {
     error,
 } from "@sveltejs/kit";
-import type {Article} from "../models";
-import {ARTICLES_BY_SLUG, ARTICLES_SOURCE, EDITO_SOURCE, EDITOS_BY_SLUG, parseMetadataInPath, type SvxInfo} from "./svx";
+
+import {ARTICLES_SOURCE, EDITO_SOURCE, parseMetadataInPath, type SvxInfo} from "./svx";
 
 enum ActivityType {
-    ARTICLE, EDITO
+    ARTICLE, EDITO, SUITE
 }
 
 interface Activity {
@@ -40,7 +40,7 @@ function articleToActivity(article: ArticleMetadata): Activity {
     return {
         title: article.title,
         summary: article.description,
-        url: article.url,
+        url: `https://cyberendroit.net/${article.url}`,
         date: article.publication_date,
         tags: article.tags,
         type: ActivityType.ARTICLE
@@ -52,7 +52,7 @@ function editoToActivity(edito: EditoMetadata): Activity {
         date: edito.publication_date,
         summary: "Edito",
         title: edito.title,
-        url: `https://cyberendroit.net/edito/${edito.slug}`,
+        url: `https://cyberendroit.net/${edito.url}`,
         tags: [],
         type: ActivityType.EDITO
     }
@@ -87,48 +87,21 @@ export async function loadRenderedEditos() : Promise<Edito[]> {
     const posts: EditoMetadata[] = await loadEditos();
 
     const recentEditos = posts.slice(0,5)
-        .map(it => it.slug)
-        .map(loadEditoFromSlug)
+        .map(renderEdito)
 
     return Promise.all(recentEditos);
 }
 
-export async function loadEditoFromSlug(slug: string) : Promise<Edito> {
+export async function renderEdito(edito: EditoMetadata) : Promise<Edito> {
     try {
-        const editoResolver = EDITOS_BY_SLUG.get(slug)
-
-        if(!editoResolver) {
-            throw error(404, "Invalid edito identifier")
-        }
+        const editoResolver = edito.content_resolver
 
         const svxEdito = await editoResolver();
         const metadata = svxEdito.metadata
-        metadata.slug = slug
 
         return {
             content: svxEdito.default.render().html,
             metadata
-        }
-
-    } catch (err) {
-        console.log(err)
-        throw error(404, (err as Error).message)
-    }
-}
-
-export async function loadArticle(slug: string): Promise<Article> {
-    try {
-        const articleResolver = ARTICLES_BY_SLUG.get(slug)
-
-        if(!articleResolver) {
-            throw error(404, "Invalid article")
-        }
-
-        const article = await articleResolver();
-
-        return {
-            html: article.default.render().html,
-            metadata: article.metadata
         }
 
     } catch (err) {
