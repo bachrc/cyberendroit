@@ -1,0 +1,26 @@
+---
+title: Apprenons Rust en TDD, et Archi Hexagonale
+description: Le premier de la trilogie
+tags: dev,rust
+published: true
+layout: suites
+publication_date: 2022-10-16T17:57:14+02:00
+pouet_url: https://mamot.fr/@pacha/109395508398437096
+---
+
+<script lang="ts">
+  import ArticleCard from "$components/articles/ArticleCard.svelte";
+
+  export let data: ContentFromServer;
+  console.log(data);
+</script>
+
+Bonjour et bienvenue dans cette suite d'article ayant pour but de vous faire apprendre les bases de
+Rust, en TDD, et une architecture hexagonale.
+
+Le but de cette trilogie d'articles a pour but de vous faire découvrir le langage par le prisme des
+tests et de la qualité logicielle.
+
+[Partie 1](rust-with-tdd-and-hexagon/part-1)
+
+

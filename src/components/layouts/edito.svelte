@@ -5,7 +5,9 @@
 </script>
 
 <article>
-    <span class="date">Publié le {prettyDateFromIsoString(publication_date)}</span>
+    {#if publication_date}
+        <span class="date">Publié le {prettyDateFromIsoString(publication_date)}</span>
+    {/if}
     <div class="edito-content">
         <slot></slot>
     </div>

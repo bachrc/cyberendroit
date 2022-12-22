@@ -1,17 +1,21 @@
 <script lang="ts">
     import CyberContainer from "$components/CyberContainer.svelte";
-    import type {Edito, EditosFromServer} from "$lib/models.js";
-    import EditoLayout from "$components/layouts/edito.svelte"
+    import type {EditosFromServer} from "$lib/models.js";
+
+    import EditoLayout from "../components/layouts/edito.svelte"
 
     export let data: EditosFromServer;
-    const editos: Edito[] = data.editos
+
+    const editos = data.editos;
 </script>
 
 <main>
     <div class="editos">
         {#each editos as edito}
-            <CyberContainer title={edito.metadata.title} url={`/editos/${edito.metadata.slug}`}>
-                {@html edito.content}
+            <CyberContainer title={edito.metadata.title} url={edito.metadata.url}>
+                <EditoLayout>
+                    {@html edito.content}
+                </EditoLayout>
             </CyberContainer>
         {/each}
     </div>

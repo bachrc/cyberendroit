@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { ArticleMetadata, ArticlesFromServer } from '$lib/models';
 	import ArticleCard from '$components/articles/ArticleCard.svelte';
 	import CyberContainer from '$components/CyberContainer.svelte';
+	import type {ArticlesFromServer, Content, ContentFromServer} from "$lib/models";
 
 	export let data: ArticlesFromServer;
-	const articles: ArticleMetadata[] = data.articles;
+	const contained: Content[] = data.content;
 </script>
 
 <svelte:head>
@@ -15,8 +15,8 @@
 	<h1 class="header-text">{data.tag}</h1>
 	<div class="articles-panel">
 		<div class="articles-list">
-			{#each articles as article}
-				<ArticleCard {article} />
+			{#each contained as content}
+				<ArticleCard {content} />
 			{/each}
 		</div>
 		<aside>
@@ -29,13 +29,13 @@
 
 <style>
 	aside {
-		min-width: 400px;
 		margin-top: 20px;
 	}
 
 	.page-container {
 		display: flex;
 		flex-direction: column;
+		padding: 15px;
 	}
 
 	.header-text {
@@ -43,14 +43,28 @@
 		gap: 0.5rem;
 		margin: 2rem 0;
 		font-family: 'Serpentine', serif;
-		font-size: 3.75rem;
+		font-size: 2.5rem;
 	}
 
 	.articles-panel {
 		display: flex;
-		flex-direction: row;
-		gap: 15px;
-		justify-content: space-between;
+		flex-direction: column;
+	}
+
+	@media only screen and (min-width: 768px) {
+		.articles-panel {
+			flex-direction: row;
+			justify-content: space-between;
+			gap: 15px;
+		}
+
+		aside {
+			min-width: 400px;
+		}
+
+		.header-text {
+			font-size: 3.5rem;
+		}
 	}
 
 	.articles-list {

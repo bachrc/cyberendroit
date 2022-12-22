@@ -1,10 +1,10 @@
 <script lang="ts">
-	import type { ArticleMetadata, ArticlesFromServer } from '$lib/models';
 	import ArticleCard from '../../components/articles/ArticleCard.svelte';
 	import CyberContainer from '../../components/CyberContainer.svelte';
+	import type {Content, ContentFromServer} from "$lib/models";
 
-	export let data: ArticlesFromServer;
-	const articles: ArticleMetadata[] = data.articles;
+	export let data: ContentFromServer;
+	const contained: Content[] = data.content;
 </script>
 
 <svelte:head>
@@ -15,8 +15,8 @@
 	<h1 class="header-text">Le Blogidélice.</h1>
 	<div class="articles-panel">
 		<div class="articles-list">
-			{#each articles as article}
-				<ArticleCard {article} />
+			{#each contained as content}
+				<ArticleCard {content} />
 			{/each}
 		</div>
 		<aside>

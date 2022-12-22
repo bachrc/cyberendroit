@@ -21,7 +21,7 @@ const config = {
         alias: {
             $articles: resolve('./src/routes/articles'),
             $lib: resolve('./src/lib'),
-            $suites: resolve('./src/suites'),
+            $suites: resolve('./src/routes/suites'),
             $editos: resolve('./src/routes/editos'),
             $components: resolve('./src/components'),
         },

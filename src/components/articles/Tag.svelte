@@ -4,7 +4,7 @@
 
 <div>
     <img src="/tag_icon.svg" alt="Icon of a tag" />
-    <a href="/articles/tags/{name}"><span>{name}</span></a>
+    <a href="/blog/tags/{name}"><span>{name}</span></a>
 </div>
 
 <style>

@@ -1,27 +1,34 @@
 <script lang="ts">
-    import type {ArticleMetadata} from "$lib/models.js";
+    import type {Content} from "$lib/models.js";
     import {prettyDateFromIsoString} from "$lib/dates.js";
     import Tag from "./Tag.svelte";
+    import {ContentType} from "$lib/models";
 
-    export let article: ArticleMetadata;
+    export let content: Content;
+    export let type: ContentType;
+    export let url: string;
+    export let title: string;
+    export let description: string;
+    export let tags: string[];
+    export let publication_date: string;
 </script>
 
 <fieldset>
-    <legend>Article</legend>
+    <legend>{ContentType[type || content.type]}</legend>
     <div class="card-content">
-        <a href="/{article.url}">
-            <h1 class="titre">{article.title}</h1>
+        <a href="{url || content.url}">
+            <h1 class="titre">{title || content.title}</h1>
         </a>
-        <span class="description">{article.description}</span>
-        {#if article.tags.length > 0}
+        <span class="description">{description || content.description}</span>
+        {#if (tags || content.tags).length > 0}
             <div class="tags">
                 <span>Thèmes : </span>
-                {#each article.tags as tag}
+                {#each (tags || content.tags) as tag}
                     <Tag name={tag}/>
                 {/each}
             </div>
         {/if}
-        <span class="date">Le {prettyDateFromIsoString(article.publication_date)}</span>
+        <span class="date">Le {publication_date || prettyDateFromIsoString(content.publication_date.toISOString())}</span>
     </div>
 </fieldset>
 

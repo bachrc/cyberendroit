@@ -1,36 +1,67 @@
 export type Resolver = () => Promise<any>;
 
-interface ArticleMetadata {
+export type EditosFromServer = {editos: Rendered<EditoMetadata>[]}
+export type ContentFromServer = {content: Content[]}
+
+interface Content {
     title: string,
     description: string,
-    image?: string,
-    published: boolean,
     tags: string[],
     url: string,
     publication_date: Date,
-    pouet_url: string,
+    image?: string,
+    type: ContentType
 }
 
-interface EditoMetadata {
-    title: string;
-    publication_date: Date;
-    content_resolver: Resolver;
-    url: string,
-    pouet_url?: string
+interface Rendered<T> {
+    metadata: T,
+    content: string
 }
 
-interface Edito {
-    metadata: EditoMetadata;
-    content: string;
+class ArticleMetadata implements Content {
+    public type: ContentType = ContentType.Article;
+
+    constructor(
+        public description: string,
+        public publication_date: Date,
+        public tags: string[],
+        public title: string,
+        public url: string,
+        public image?: string,
+        public pouet_url?: string
+    ) {}
+}
+
+class SuiteMetadata implements Content {
+    public type: ContentType = ContentType.Suite;
+
+    constructor(
+        public description: string,
+        public publication_date: Date,
+        public tags: string[],
+        public title: string,
+        public url: string,
+        public image?: string,
+    ) {}
+}
+
+class EditoMetadata implements Content {
+    public type: ContentType = ContentType.Edito;
+
+    constructor(
+        public description: string,
+        public publication_date: Date,
+        public tags: string[],
+        public title: string,
+        public url: string,
+        public image?: string,
+        public pouet_url?: string,
+    ) {}
 }
 
 interface ArticlesFromServer {
-    articles : ArticleMetadata[],
+    content : Content[],
     tag? : string
-}
-
-interface EditosFromServer {
-    editos : Edito[]
 }
 
 interface Article {
@@ -38,4 +69,8 @@ interface Article {
     metadata: ArticleMetadata
 }
 
-export type {ArticlesFromServer, ArticleMetadata, Article, Edito, EditoMetadata, EditosFromServer}
+enum ContentType {
+    Article, Edito, Suite
+}
+
+export {type ArticlesFromServer, type Content, type Rendered, SuiteMetadata, ContentType, ArticleMetadata, type Article, EditoMetadata}
