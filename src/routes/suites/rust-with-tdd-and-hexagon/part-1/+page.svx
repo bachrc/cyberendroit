@@ -3,6 +3,7 @@ title: Apprenons Rust en TDD, et Archi Hexagonale (Partie 1)
 description: Le premier de la trilogie
 tags: dev,rust
 published: true
+layout: articles
 publication_date: 2022-10-16T17:57:14+02:00
 pouet_url: https://mamot.fr/@pacha/109395508398437096
 ---
