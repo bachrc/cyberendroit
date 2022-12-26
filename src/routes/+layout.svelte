@@ -5,6 +5,19 @@
     import Header from "../components/Header.svelte";
     import NavBar from "../components/NavBar.svelte";
     import Footer from "../components/Footer.svelte";
+
+    import { webVitals } from '$lib/vitals';
+    import { browser } from '$app/environment';
+    import { page } from '$app/stores';
+
+    let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+    $: if (browser && analyticsId) {
+        webVitals({
+            path: $page.url.pathname,
+            params: $page.params,
+            analyticsId
+        })
+    }
 </script>
 <svelte:head>
     <title>cyberendroit.net</title>

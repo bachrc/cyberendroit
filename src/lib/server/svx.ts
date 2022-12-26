@@ -2,7 +2,6 @@ import type {Rendered, Resolver} from "../models";
 
 export const EDITO_SOURCE = import.meta.glob('$editos/**/*.{md,svx,svelte.md}');
 export const ARTICLES_SOURCE = import.meta.glob('$articles/**/*.{md,svx,svelte.md}');
-export const SUITES_SOURCE = import.meta.glob('$suites/*/*.{md,svx,svelte.md}');
 
 export async function parseMetadataInPath(modules: object): Promise<SvxInfo[]> {
     const postPromises = [];

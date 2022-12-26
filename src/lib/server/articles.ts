@@ -6,19 +6,12 @@ import {loadEditos} from "./edito";
 
 export async function loadArticlesAndSuites(): Promise<Content[]> {
     const articles = loadArticles()
-    const suites = loadSuites()
 
-    let activities = await Promise.all([articles, suites]).then(a => a.flat());
+    let activities = await Promise.all([articles]).then(a => a.flat());
 
     activities.sort((e1, e2) => e2.publication_date.valueOf() - e1.publication_date.valueOf())
 
     return activities
-}
-
-export async function loadSuites(): Promise<SuiteMetadata[]> {
-    let suites = await parseMetadataInPath(SUITES_SOURCE);
-
-    return suites.map(fromMetadataToSuite);
 }
 
 export async function loadArticles(): Promise<ArticleMetadata[]> {

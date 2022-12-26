@@ -1,4 +1,4 @@
-import {loadArticles, loadSuites} from "./articles";
+import {loadArticles} from "./articles";
 import {ArticleMetadata, ContentType, EditoMetadata, SuiteMetadata} from "../models";
 import {loadEditos} from "./edito";
 
@@ -22,11 +22,7 @@ export async function loadActivity(): Promise<AtomActivity[]> {
             .map(editoToActivity)
     );
 
-    const activitiesSuites = loadSuites().then(
-        suites => suites.map(suiteToActivity)
-    )
-
-    let activities = await Promise.all([activitiesArticles, activitiesEditos, activitiesSuites]).then(a => a.flat());
+    let activities = await Promise.all([activitiesArticles, activitiesEditos]).then(a => a.flat());
 
     activities.sort((e1, e2) => e2.date.valueOf() - e1.date.valueOf())
 
