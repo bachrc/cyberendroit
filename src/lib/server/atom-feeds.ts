@@ -1,6 +1,6 @@
-import {loadArticles} from "./articles";
-import {ArticleMetadata, ContentType, EditoMetadata, SuiteMetadata} from "../models";
+import {ArticleMetadata, ContentType, EditoMetadata} from "../models";
 import {loadEditos} from "./edito";
+import {loadArticles} from "./articles";
 
 interface AtomActivity {
     title: string,
@@ -13,8 +13,9 @@ interface AtomActivity {
 
 export async function loadActivity(): Promise<AtomActivity[]> {
     const activitiesArticles = loadArticles().then(
-        articles => articles.map(articleToActivity)
-    );
+        articles => articles
+            .map(articleToActivity)
+    )
 
     const activitiesEditos = loadEditos().then(
         editos => editos
@@ -27,13 +28,6 @@ export async function loadActivity(): Promise<AtomActivity[]> {
     activities.sort((e1, e2) => e2.date.valueOf() - e1.date.valueOf())
 
     return activities
-}
-
-function suiteToActivity(suite: SuiteMetadata): AtomActivity {
-    let activity = articleToActivity(suite);
-    activity.type = ContentType.Suite
-
-    return activity;
 }
 
 function editoToActivity(edito: EditoMetadata): AtomActivity {

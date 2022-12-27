@@ -1,26 +1,25 @@
-import type {ArticleMetadata, Content, EditoMetadata, Rendered, SuiteMetadata} from "../models";
-import {fromMetadataToArticle, fromMetadataToSuite} from "../articles";
+import type {Content, EditoMetadata, Rendered} from "../models";
+import {fromMetadataToArticle} from "../articles";
 
-import {ARTICLES_SOURCE, parseMetadataInPath, Renderable, SUITES_SOURCE} from "./svx";
+import {ARTICLES_SOURCE, parseMetadataInPath, Renderable} from "./svx";
 import {loadEditos} from "./edito";
+import type {ArticleMetadata} from "../models";
 
-export async function loadArticlesAndSuites(): Promise<Content[]> {
-    const articles = loadArticles()
+export async function loadOrderedArticles(): Promise<Content[]> {
+    const articles = await loadArticles()
 
-    let activities = await Promise.all([articles]).then(a => a.flat());
+    articles.sort((e1, e2) => e2.publication_date.valueOf() - e1.publication_date.valueOf())
 
-    activities.sort((e1, e2) => e2.publication_date.valueOf() - e1.publication_date.valueOf())
-
-    return activities
+    return articles
 }
 
 export async function loadArticles(): Promise<ArticleMetadata[]> {
     return (await parseMetadataInPath(ARTICLES_SOURCE))
-        .map(fromMetadataToArticle);
+        .map(fromMetadataToArticle)
 }
 
 export async function loadArticlesWithTag(tag: string): Promise<Content[]> {
-    return (await loadArticlesAndSuites())
+    return (await loadOrderedArticles())
         .filter(article => article.tags.includes(tag))
 }
 

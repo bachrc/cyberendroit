@@ -32,19 +32,6 @@ class ArticleMetadata implements Content {
     ) {}
 }
 
-class SuiteMetadata implements Content {
-    public type: ContentType = ContentType.Suite;
-
-    constructor(
-        public description: string,
-        public publication_date: Date,
-        public tags: string[],
-        public title: string,
-        public url: string,
-        public image?: string,
-    ) {}
-}
-
 class EditoMetadata implements Content {
     public type: ContentType = ContentType.Edito;
 
@@ -73,4 +60,4 @@ enum ContentType {
     Article, Edito, Suite
 }
 
-export {type ArticlesFromServer, type Content, type Rendered, SuiteMetadata, ContentType, ArticleMetadata, type Article, EditoMetadata}
+export {type ArticlesFromServer, type Content, type Rendered, ContentType, ArticleMetadata, type Article, EditoMetadata}
