@@ -2,8 +2,8 @@
     import CyberContainer from "$components/CyberContainer.svelte";
     import type {EditosFromServer} from "$lib/models.js";
 
-    import EditoLayout from "../components/layouts/edito.svelte"
-    import MusicContainer from "../components/MusicContainer.svelte";
+    import EditoLayout from "$components/layouts/edito.svelte"
+    import MusicContainer from "$components/MusicContainer.svelte";
 
     export let data: EditosFromServer;
 
