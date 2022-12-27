@@ -2,9 +2,12 @@
 	import ArticleCard from '../../components/articles/ArticleCard.svelte';
 	import CyberContainer from '../../components/CyberContainer.svelte';
 	import type {Content, ContentFromServer} from "$lib/models";
+	import {page} from "$app/stores";
 
 	export let data: ContentFromServer;
 	const contained: Content[] = data.content;
+
+
 </script>
 
 <svelte:head>
@@ -12,7 +15,7 @@
 </svelte:head>
 
 <div class="page-container">
-	<h1 class="header-text">Le Blogidélice.</h1>
+	<h1 class="header-text">{$page.url.searchParams.get("tag") || "Le Blogidélice."}</h1>
 	<div class="articles-panel">
 		<div class="articles-list">
 			{#each contained as content}

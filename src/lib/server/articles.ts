@@ -5,8 +5,8 @@ import {ARTICLES_SOURCE, parseMetadataInPath, Renderable} from "./svx";
 import {loadEditos} from "./edito";
 import type {ArticleMetadata} from "../models";
 
-export async function loadOrderedArticles(): Promise<Content[]> {
-    const articles = await loadArticles()
+export async function loadOrderedArticles(tagSearch ?: string): Promise<Content[]> {
+    const articles = tagSearch ? await loadArticlesWithTag(tagSearch) : await loadArticles()
 
     articles.sort((e1, e2) => e2.publication_date.valueOf() - e1.publication_date.valueOf())
 
