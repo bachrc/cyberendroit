@@ -5,9 +5,8 @@
 	import {page} from "$app/stores";
 
 	export let data: ContentFromServer;
-	const contained: Content[] = data.content;
 
-
+	$: contained = data.content;
 </script>
 
 <svelte:head>
