@@ -18,7 +18,7 @@
 	<h1 class="header-text">{$page.url.searchParams.get("tag") || "Le Blogidélice."}</h1>
 	<div class="articles-panel">
 		<div class="articles-list">
-			{#each contained as content}
+			{#each contained as content (content.url)}
 				<ArticleCard {content} />
 			{/each}
 		</div>
