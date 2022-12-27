@@ -3,6 +3,7 @@
     import type {EditosFromServer} from "$lib/models.js";
 
     import EditoLayout from "../components/layouts/edito.svelte"
+    import MusicContainer from "../components/MusicContainer.svelte";
 
     export let data: EditosFromServer;
 
@@ -24,10 +25,7 @@
             <blockquote>Je me suis cyber-perdu</blockquote>
         </CyberContainer>
         <CyberContainer title="Musique pour vous accompagner" theme="cyan">
-            <div class="musique">
-                <iframe title="Fia" style="border: 0; width: auto; height: 470px;" src="https://bandcamp.com/EmbeddedPlayer/album=189105059/size=large/bgcol=ffffff/linkcol=63b2cc/tracklist=false/track=884844578/transparent=true/" seamless><a href="https://blood-music.bandcamp.com/album/corpo-mente">Corpo-Mente by Corpo-Mente</a></iframe>
-                <span>Cette musique sent le froid et l'hiver. Le temps est grisâtre, la terre aride et l'horizon infini.</span>
-            </div>
+            <MusicContainer />
         </CyberContainer>
     </aside>
 </main>
@@ -53,12 +51,6 @@
         flex-direction: column;
         gap: 0.5rem;
         width: 100%
-    }
-
-    .musique {
-        display: flex;
-        flex-direction: column;
-        font-style: italic;
     }
 
     @media only screen and (min-width: 768px) {
