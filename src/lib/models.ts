@@ -3,6 +3,11 @@ export type Resolver = () => Promise<any>;
 export type EditosFromServer = {editos: Rendered<EditoMetadata>[]}
 export type ContentFromServer = {content: Content[]}
 
+interface TagOccurrencies {
+    tag: string,
+    contained: number
+}
+
 interface Content {
     title: string,
     description: string,
@@ -60,4 +65,4 @@ enum ContentType {
     Article, Edito, Suite
 }
 
-export {type ArticlesFromServer, type Content, type Rendered, ContentType, ArticleMetadata, type Article, EditoMetadata}
+export {type ArticlesFromServer, type Content, type Rendered, ContentType, type TagOccurrencies, ArticleMetadata, type Article, EditoMetadata}

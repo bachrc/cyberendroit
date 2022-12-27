@@ -1,12 +1,21 @@
 <script lang="ts">
-	import ArticleCard from '../../components/articles/ArticleCard.svelte';
-	import CyberContainer from '../../components/CyberContainer.svelte';
-	import type {Content, ContentFromServer} from "$lib/models";
+	import ArticleCard from '$components/articles/ArticleCard.svelte';
+	import CyberContainer from '$components/CyberContainer.svelte';
+	import type {ContentFromServer, TagOccurrencies} from "$lib/models";
 	import {page} from "$app/stores";
+	import Tag from "$components/articles/Tag.svelte";
 
 	export let data: ContentFromServer;
 
 	$: contained = data.content;
+	let tags: TagOccurrencies[] = []
+
+	async function fetchTags(): Promise<TagOccurrencies[]> {
+		console.log("heheheh poueeeeet")
+
+		return await fetch('blog/tags.json')
+				.then(res => res.json());
+	}
 </script>
 
 <svelte:head>
@@ -23,7 +32,15 @@
 		</div>
 		<aside>
 			<CyberContainer title="Recherche" theme="cyan">
-				Bientôt ici on pourra rechercher
+				{#await fetchTags()}
+					loading tags..
+				{:then tags}
+					{#each tags as tag}
+						<Tag name={tag.tag} />
+					{/each}
+				{:catch error}
+					<p>Error fetching tags</p>
+				{/await}
 			</CyberContainer>
 		</aside>
 	</div>

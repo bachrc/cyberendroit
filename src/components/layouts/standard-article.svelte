@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import "../../styles/code-block.css"
     import {prettyDateFromIsoString} from "$lib/dates";
     import MastodonComments from "../comments/MastodonComments.svelte";

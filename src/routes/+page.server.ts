@@ -1,4 +1,4 @@
-import {loadRenderedEditos} from "../lib/server/articles";
+import {loadRenderedEditos} from "$lib/server/articles";
 import type {EditosFromServer} from "$lib/models";
 
 export const prerender = true;
