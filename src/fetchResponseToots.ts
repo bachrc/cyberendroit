@@ -1,5 +1,7 @@
-import type { Maybe } from './Maybe';
-import { none, some } from './Maybe';
+import fetch from 'cross-fetch';
+
+import type { Result } from './Result';
+import { error, ok } from './Result';
 
 type Toot = {
 	toot_id: string;
@@ -25,20 +27,27 @@ const tootFromDescendant = (value: any): Toot => ({
 	toot_url: value['url']
 });
 
-export async function fetchResponseToots(tootUrl: string): Promise<Maybe<ReadonlyArray<Toot>>> {
+export async function fetchResponseToots(tootUrl: string): Promise<Result<ReadonlyArray<Toot>>> {
 	const tootPattern = /^https?:\/\/([\w.]*)\/.*\/(\d*)$/;
 	const match = tootPattern.exec(tootUrl);
 
-	if (match === null) return none;
+	if (match === null) {
+		return error(
+			new Error('tootUrl should be an URL of a toot in the form of https://INSTANCE/USER/TOOT_ID')
+		);
+	}
 
 	const [instanceName, tootId] = match;
 
-	const newLocal = await fetch(`https://${instanceName}/api/v1/statuses/${tootId}/context`);
+	const response = await fetch(`https://${instanceName}/api/v1/statuses/${tootId}/context`);
 
-	if (!newLocal.ok) return none;
+	if (response.ok === false) {
+		const responseText = await response.text();
+		return error(new Error(`${response.status} ${response.statusText}\n${responseText}`));
+	}
 
-	const response = await newLocal.json();
-	const descendants = response['descendants'];
+	const context = await response.json();
+	const descendants = context['descendants'];
 	const toots = descendants.map(tootFromDescendant);
-	return some(toots);
+	return ok(toots);
 }
