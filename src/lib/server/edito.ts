@@ -10,7 +10,7 @@ export function parseEditoInSvx(svx: SvxInfo) : Renderable<EditoMetadata> {
         svx.metadata.title!,
         urlFromPath(svx.path)!!,
         svx.metadata.image,
-        svx.metadata.pouet_url
+        svx.metadata.toot_url
     )
 
     return new Renderable<EditoMetadata>(

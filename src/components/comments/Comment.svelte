@@ -1,26 +1,26 @@
 <script lang="ts">
-    import type {Pouet} from "../../lib/comments";
+    import type {Toot} from "../../lib/comments";
 
-    export let pouet: Pouet;
+    export let toot: Toot;
 
-    const formatted_date = pouet.posted_date.toLocaleDateString('fr-FR', {
+    const formatted_date = toot.posted_date.toLocaleDateString('fr-FR', {
         year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: "numeric"
     })
 </script>
 <div class="container">
     <div class="poster">
-        <img alt="Image de profil de {pouet.display_name}" src={pouet.avatar_url} class="profile-image"/>
+        <img alt="Image de profil de {toot.display_name}" src={toot.avatar_url} class="profile-image"/>
         <div class="poster-names">
-            <span class="poster-display-name"><a href={pouet.profile_url}>{pouet.display_name}</a></span>
-            <span class="poster-handle">{pouet.actor}</span>
+            <span class="poster-display-name"><a href={toot.profile_url}>{toot.display_name}</a></span>
+            <span class="poster-handle">{toot.actor}</span>
         </div>
     </div>
     <div>
-        {@html pouet.content}
+        {@html toot.content}
     </div>
     <div>
         <span class="comment">
-            <a href="{pouet.toot_url}">Posté le {formatted_date}</a>
+            <a href="{toot.toot_url}">Posté le {formatted_date}</a>
         </span>
     </div>
 </div>

@@ -9,7 +9,7 @@
     export let author;
     export let image;
     export let publication_date;
-    export let pouet_url;
+    export let toot_url;
 </script>
 
 <svelte:head>
@@ -50,10 +50,10 @@
         <article>
             <slot></slot>
         </article>
-        {#if pouet_url}
+        {#if toot_url}
             <hr class="separator"/>
             <div class="comments">
-                <MastodonComments pouetUrl={pouet_url} />
+                <MastodonComments tootUrl={toot_url} />
             </div>
         {/if}
     </div>

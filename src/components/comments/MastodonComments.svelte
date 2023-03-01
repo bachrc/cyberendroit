@@ -1,38 +1,38 @@
 <script lang="ts">
-    import type {Pouet} from "$lib/comments";
-    import {pouetsFromResponse} from "$lib/comments";
+    import type {Toot} from "$lib/comments";
+    import {tootsFromResponse} from "$lib/comments";
     import Comment from "./Comment.svelte";
 
-    export let pouetUrl;
+    export let tootUrl;
 
-    async function fetchResponsePouets(pouetUrl: string) : Promise<Pouet[]> {
-        const pouetPattern = /^https?:\/\/([\w.]*)\/.*\/(\d*)$/
+    async function fetchResponseToots(tootUrl: string) : Promise<Toot[]> {
+        const tootPattern = /^https?:\/\/([\w.]*)\/.*\/(\d*)$/
 
-        const match = pouetUrl.match(pouetPattern);
+        const match = tootUrl.match(tootPattern);
         const instanceName = match[1];
-        const pouetId = match[2];
+        const tootId = match[2];
 
-        return await fetch(`https://${instanceName}/api/v1/statuses/${pouetId}/context`)
+        return await fetch(`https://${instanceName}/api/v1/statuses/${tootId}/context`)
             .then((response) => response.json())
             .then(response => response["descendants"])
-            .then(it => pouetsFromResponse(it))
+            .then(it => tootsFromResponse(it))
     }
 </script>
 
 <div class="container">
     <h1 class="title">Commentaires</h1>
     <div class="comments">
-        {#await fetchResponsePouets(pouetUrl)}
+        {#await fetchResponseToots(tootUrl)}
             <p>loading comments..</p>
-        {:then pouets}
-            {#each pouets as pouet}
-                <Comment pouet={pouet}/>
+        {:then toots}
+            {#each toots as toot}
+                <Comment toot={toot}/>
             {/each}
         {:catch error}
             <p style="color: red">{error.message}</p>
         {/await}
     </div>
-    <span class="add-comment">Vous pouvez ajouter un commentaire en <a href={pouetUrl}>répondant sur Mastodon</a> !</span>
+    <span class="add-comment">Vous pouvez ajouter un commentaire en <a href={tootUrl}>répondant sur Mastodon</a> !</span>
 </div>
 
 <style>

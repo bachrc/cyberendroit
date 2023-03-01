@@ -12,7 +12,7 @@ export function fromMetadataToArticle(svx: SvxInfo) : ArticleMetadata {
         svx.metadata.title!,
         urlFromPath(svx.path)!!,
         svx.metadata.image,
-        svx.metadata.pouet_url
+        svx.metadata.toot_url
     )
 }
 

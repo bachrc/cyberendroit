@@ -33,7 +33,7 @@ class ArticleMetadata implements Content {
         public title: string,
         public url: string,
         public image?: string,
-        public pouet_url?: string
+        public toot_url?: string
     ) {}
 }
 
@@ -47,7 +47,7 @@ class EditoMetadata implements Content {
         public title: string,
         public url: string,
         public image?: string,
-        public pouet_url?: string,
+        public toot_url?: string,
     ) {}
 }
 
