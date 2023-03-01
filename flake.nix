@@ -24,10 +24,11 @@
         devShell = pkgs.mkShell {
           packages = [
             pkgs.nodejs-18_x
+            pkgs.nodePackages.pnpm
           ];
 
           shellHook = ''
-            npm install
+            pnpm install
           '';
         };
       });
