@@ -1,4 +1,4 @@
-type Toot = {
+export type Toot = {
     toot_id: string,
     in_replay_to_id: string,
     avatar_url: string,
@@ -23,5 +23,3 @@ export function tootsFromResponse(response: Array<any>): Toot[] {
         toot_url: it["url"]
     }})
 }
-
-export type {Toot}
